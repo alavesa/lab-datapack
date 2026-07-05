@@ -1,0 +1,6 @@
+# Take the machine apart and refund its kit (fridge contents pop out first,
+# inside retire). Used by admin punches and by validate when the spawner block
+# is somehow mined directly.
+execute if entity @s[tag=lab.fuge] run summon item ~ ~0.5 ~ {PickupDelay:10,Item:{id:"minecraft:carrot_on_a_stick",count:1,components:{"minecraft:custom_name":{text:"Centrifuge Kit",color:"aqua",italic:false},"minecraft:lore":[{text:"Right-click while looking at the floor",color:"gray",italic:false},{text:"to install the centrifuge there.",color:"gray",italic:false}],"minecraft:custom_data":{lab_place:"centrifuge"},"minecraft:custom_model_data":{strings:["lab_centrifuge_kit"]},"minecraft:max_stack_size":1}}}
+execute if entity @s[tag=lab.fridge] run summon item ~ ~0.5 ~ {PickupDelay:10,Item:{id:"minecraft:carrot_on_a_stick",count:1,components:{"minecraft:custom_name":{text:"Fridge Kit",color:"aqua",italic:false},"minecraft:lore":[{text:"Right-click while looking at the floor",color:"gray",italic:false},{text:"to install the fridge there.",color:"gray",italic:false}],"minecraft:custom_data":{lab_place:"fridge"},"minecraft:custom_model_data":{strings:["lab_fridge_kit"]},"minecraft:max_stack_size":1}}}
+function lab:machine/retire

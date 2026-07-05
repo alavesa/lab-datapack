@@ -121,7 +121,10 @@ a spawner block for collision (the resource pack renders it invisible), an
 `item_display` for the 3D model, and an `interaction` entity so **right-clicking the
 machine actually does things**. Ship-with models are built from vanilla textures;
 swap in your own Blockbench models — see [CUSTOM-MODEL.md](CUSTOM-MODEL.md).
-Mine the spawner or run `/function lab:remove` nearby to remove a machine cleanly.
+**Dismantling:** the interaction box eats block hits, so the machines are punch-proof
+for regular players. An op runs `/function lab:admin` once (toggle) — after that,
+punching a machine dismantles it and **refunds the kit item** (fridges drop their
+contents first). `/function lab:remove` (machines within 5 blocks) works too.
 
 ### Centrifuge
 

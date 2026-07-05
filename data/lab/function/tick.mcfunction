@@ -6,6 +6,9 @@ scoreboard players set @a lab.rod 0
 # field; `execute on target` resolves the clicking player.
 execute as @e[type=interaction,tag=lab.fuge] if data entity @s interaction at @s run function lab:fuge/clicked
 execute as @e[type=interaction,tag=lab.fridge] if data entity @s interaction at @s run function lab:fridge/clicked
+# Machine punches: lab admins dismantle (the interaction box eats block hits,
+# so the spawner can't be mined through it - this is the intended way)
+execute as @e[type=interaction,tag=lab.machine] if data entity @s attack at @s run function lab:machine/attacked
 
 # 1s cadence: alkali metals in water; 2s cadence: machine upkeep
 scoreboard players add #t20 lab.var 1
