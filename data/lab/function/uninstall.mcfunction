@@ -10,7 +10,9 @@ scoreboard objectives remove lab.rxn
 scoreboard objectives remove lab.id
 scoreboard objectives remove lab.age
 scoreboard objectives remove lab.sip
+kill @e[type=item_display,tag=lab.rackview]
 data remove storage lab:elements
 data remove storage lab:fridges
+data remove storage lab:racks
 data remove storage lab:tmp
 tellraw @a {"text":"[Lab] Uninstalled - machines retired, scoreboards and registries removed. Safe to disable the pack.","color":"yellow"}

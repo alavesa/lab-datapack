@@ -16,6 +16,27 @@
           "type": "minecraft:model",
           "model": "lab:block/fridge"
         }
+      },
+      {
+        "when": "lab_burner_kit",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:block/burner"
+        }
+      },
+      {
+        "when": "lab_rack_kit",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:block/rack"
+        }
+      },
+      {
+        "when": "lab_pipette",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/pipette"
+        }
       }
     ],
     "fallback": {

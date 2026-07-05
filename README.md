@@ -73,11 +73,14 @@ atoms you need**.
 | Fe2O3 | Rust | 2 Fe + 3 O | not drinkable, **bonus: raw iron** |
 | SiO2 | Silica | Si + 2 O | not drinkable, **bonus: 2 glass** |
 
-Compounds are colored vials (potion items) — storable and centrifugable. The sensible
-ones (H2, O2, H2O, H2O2, glucose) are drinkable; try to drink anything else and your
-character refuses with a quiet *"I shouldn't drink this."* (the tooltip warns you too).
-The mix must match a formula **exactly**: nothing missing, nothing extra, or it fizzles
-(nothing is consumed on a fizzle).
+Compounds come in **test tubes** (heated reactions: **boiling flasks**) — colored by
+the compound, storable, rackable, centrifugable. Under the hood they are potion items,
+so without the resource pack they show as bottles. The sensible ones (H2, O2, H2O,
+H2O2, glucose) are drinkable; try to drink anything else and your character refuses
+with a quiet *"I shouldn't drink this."* (the tooltip warns you too). The mix must
+match a formula **exactly**: nothing missing, nothing extra, or it fizzles (nothing is
+consumed on a fizzle). The four recipes marked *needs burner heat* additionally require
+a **lit gas burner directly under the cauldron**.
 
 ## Handling rules — elements are hazardous now
 
@@ -128,8 +131,28 @@ contents first). `/function lab:remove` (machines within 5 blocks) works too.
 
 ### Centrifuge
 
-Drop a compound vial onto the machine and **right-click** → it spins the vial apart
+Drop a compound tube onto the machine and **right-click** → it spins the tube apart
 into its element items. Full round trip: elements → compound → elements.
+
+### Gas Burner
+
+A squat brass burner (`/function lab:give/burner`). Click to light/extinguish. Its
+hitbox is deliberately short, so you can **place a cauldron right on top** — and
+that's the point: **four recipes need heat** (H2SO4, glucose, rust, silica) and only
+react when a lit burner sits directly under the cauldron. Heated products come out
+in **boiling flasks** instead of test tubes.
+
+### Test Tube Rack
+
+Lab furniture (`/function lab:give/rack`, no collision block): click it while holding
+a compound tube to shelf it — **the tube appears standing in the rack**, up to six,
+colors visible. Click empty-handed to take the last one back. Dismantling pops every
+tube out.
+
+### Pipette
+
+`/function lab:give/pipette` — right-click at a cauldron to read exactly which atoms
+are in the mix, or stand near a dropped compound tube to identify it.
 
 ### Lab Fridge
 

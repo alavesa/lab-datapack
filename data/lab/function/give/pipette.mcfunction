@@ -1,0 +1,2 @@
+# The sampling pipette: read a cauldron mix or identify a compound tube.
+give @s minecraft:carrot_on_a_stick[custom_name={text:"Pipette",color:"aqua",italic:false},lore=[{text:"Right-click at a cauldron to read the mix,",color:"gray",italic:false},{text:"or near a dropped tube to identify it.",color:"gray",italic:false}],custom_data={lab_pipette:true},custom_model_data={strings:["lab_pipette"]},max_stack_size=1]

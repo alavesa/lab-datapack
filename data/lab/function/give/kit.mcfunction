@@ -3,8 +3,11 @@
 function lab:give/table
 function lab:give/manual
 function lab:give/rod
+function lab:give/pipette
 function lab:give/centrifuge
 function lab:give/fridge
+function lab:give/burner
+function lab:give/rack
 function lab:e {s:"H"}
 function lab:e {s:"H"}
 function lab:e {s:"H"}

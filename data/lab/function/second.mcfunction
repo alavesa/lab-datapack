@@ -9,6 +9,8 @@ execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_gas:
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_pyro:1b}}}}] at @s run function lab:hazard/pyro
 # lingering halogen fume clouds
 execute as @e[type=marker,tag=lab.fumes] at @s run function lab:hazard/fumes_tick
+# lit burners crackle
+execute as @e[type=interaction,tag=lab.burner,tag=lab.lit] at @s run function lab:burner/flame
 # radioactive / toxic samples on players
 execute as @a run function lab:hazard/player
 # "I shouldn't drink this" message cooldown

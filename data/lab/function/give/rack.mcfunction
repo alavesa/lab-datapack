@@ -1,0 +1,2 @@
+# A deployable test tube rack: 6 visible slots for compound tubes.
+give @s minecraft:carrot_on_a_stick[custom_name={text:"Tube Rack Kit",color:"aqua",italic:false},lore=[{text:"Right-click while looking at the floor to install.",color:"gray",italic:false},{text:"Click holding a tube to shelf it (6 slots),",color:"gray",italic:false},{text:"click empty-handed to take the last one back.",color:"gray",italic:false}],custom_data={lab_place:"rack"},custom_model_data={strings:["lab_rack_kit"]},max_stack_size=1]

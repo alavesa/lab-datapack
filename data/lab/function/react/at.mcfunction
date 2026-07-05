@@ -1,6 +1,10 @@
 # Positioned at the cauldron block (aligned corner), executed as the stirring player.
 scoreboard players set #found lab.var 1
 scoreboard players set #done lab.var 0
+scoreboard players set #needheat lab.var 0
+# HOT recipes need a lit gas burner in the block right below the cauldron
+scoreboard players set #heat lab.var 0
+execute positioned ~0.5 ~-1 ~0.5 if entity @e[type=interaction,tag=lab.burner,tag=lab.lit,distance=..0.4] run scoreboard players set #heat lab.var 1
 execute store result score #total lab.var if entity @e[type=item,dx=0,dy=0,dz=0,nbt={Item:{components:{"minecraft:custom_data":{lab_is_element:1b}}}}]
 execute if score #total lab.var matches 0 run return run tellraw @s {"text":"[Lab] The cauldron is empty - toss element items in first.","color":"yellow"}
 execute store result score #c_H lab.var if entity @e[type=item,dx=0,dy=0,dz=0,nbt={Item:{components:{"minecraft:custom_data":{lab_element:"H"}}}}]
@@ -31,4 +35,5 @@ function lab:react/recipe/ethanol
 function lab:react/recipe/glucose
 function lab:react/recipe/fe2o3
 function lab:react/recipe/sio2
+execute if score #done lab.var matches 0 if score #needheat lab.var matches 1 run return run function lab:react/needs_heat
 execute if score #done lab.var matches 0 run function lab:react/fizzle
