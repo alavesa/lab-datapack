@@ -1,0 +1,4 @@
+{
+  "include": ["**/*.mcfunction", "**/*.json"],
+  "exclude": [".git/**", ".patchpilots.json"]
+}
