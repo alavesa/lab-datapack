@@ -99,6 +99,17 @@ way (each hazard is written on the item's tooltip):
 - **Alkali metals** (Li, Na, K, Rb, Cs, Fr) in water: still TNT. Chemistry class was
   right.
 
+### labra-plugin integration: the hazmat suit
+
+Running [labra-plugin](https://github.com/alavesa/labra-plugin) on the server? Its
+**full hazmat suit** (all four pieces, `/labra` to get one) grants **total external
+immunity** to every element hazard above: radiation stops, toxic metals sit calmly in
+your bare hand, halogen fumes do nothing. The datapack reads the plugin's own
+`labra:hazmat` item marker straight from the items' NBT — no plugin update needed,
+and the same suit rule (`all 4 slots`) applies as in the plugin's hazard zones.
+Without the plugin, the iron-chestplate PPE remains the fallback. Explosions are
+still explosions; hazmat is not blast armor.
+
 ## Machines — custom 3D models with real hitboxes
 
 Machines are placed with a look-raycast (`/function lab:place/centrifuge`,

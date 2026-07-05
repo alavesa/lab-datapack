@@ -3,6 +3,7 @@
 # items in inventories and chests stay - they are ordinary, harmless items.
 execute as @e[type=interaction,tag=lab.machine] at @s run function lab:machine/retire
 kill @e[type=item_display,tag=lab.display]
+kill @e[type=marker,tag=lab.fumes]
 scoreboard objectives remove lab.var
 scoreboard objectives remove lab.rod
 scoreboard objectives remove lab.rxn
