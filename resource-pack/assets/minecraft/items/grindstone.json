@@ -1,0 +1,19 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "lab_centrifuge",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:block/centrifuge"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/grindstone"
+    }
+  }
+}

@@ -14,8 +14,12 @@ No plugins, no resource pack — companion to
 
 ## Install
 
-Drop the `Lab` folder into `<world>/datapacks/` and `/reload`.
-Requires 1.21.5+ (pack_format 88). Commands need op / cheats.
+1. Drop the `Lab` folder into `<world>/datapacks/` and `/reload`.
+   Requires 1.21.5+ (pack_format 88). Commands need op / cheats.
+2. *(Recommended)* Add `LabResourcePack.zip` to `.minecraft/resourcepacks/` — it makes
+   the machine spawner-blocks invisible so the 3D machine models stand alone. Without
+   it, machines show as a spawner cage with the base item inside (fully functional,
+   just less pretty).
 
 **Upgrading from v0.2 (tubes)?** Run the old `/function pneumatic:uninstall` *before*
 updating, so tube markers and scoreboards get cleaned up.
@@ -26,7 +30,7 @@ updating, so tube markers and scoreboards get cleaned up.
 /function lab:give/kit
 ```
 
-Book + Stirring Rod + fridge + starter atoms. Then:
+Book + Stirring Rod + starter atoms. Then:
 
 1. Place a **cauldron**. Keep it **dry** — water is for accidents.
 2. Toss in `2 × Hydrogen` and `1 × Oxygen` (click symbols in the book to get more).
@@ -67,18 +71,30 @@ Compounds are colored vials (potion items) — drinkable, storable, centrifugabl
 The mix must match a formula **exactly**: nothing missing, nothing extra, or it fizzles
 (nothing is consumed on a fizzle).
 
-## Centrifuge
+## Machines — custom 3D models with real hitboxes
 
-**Any grindstone is a centrifuge.** Drop a compound vial on top → within a second it
-spins up and splits the compound back into its element items. Full round trip:
-elements → compound → elements.
+Machines are placed with a look-raycast (`/function lab:place/centrifuge`,
+`/function lab:place/fridge` — aim at the floor) and built the **mob-spawner way**:
+a spawner block for collision (the resource pack renders it invisible), an
+`item_display` for the 3D model, and an `interaction` entity so **right-clicking the
+machine actually does things**. Ship-with models are built from vanilla textures;
+swap in your own Blockbench models — see [CUSTOM-MODEL.md](CUSTOM-MODEL.md).
+Mine the spawner or run `/function lab:remove` nearby to remove a machine cleanly.
 
-## Lab Fridge
+### Centrifuge
 
-`/function lab:give/fridge` — a named barrel that registers itself when placed (same
-raycast trick as [keycard-datapack](https://github.com/alavesa/keycard-datapack)
-readers), hums with frost particles and stores your vial collection. Break it and it
-retires cleanly. Fallback registration: look at it and run `/function lab:register`.
+Drop a compound vial onto the machine and **right-click** → it spins the vial apart
+into its element items. Full round trip: elements → compound → elements.
+
+### Lab Fridge
+
+A tall white cabinet with frost coming off it:
+
+- drop chemicals next to it and **right-click** → it vacuums every element and vial
+  within 2 blocks into internal cold storage (actionbar shows the count)
+- **sneak + right-click** → it pops everything back out
+- mine it (or `/function lab:remove`) and it dumps its contents first — nothing is
+  ever lost. Contents live in `storage lab:fridges`, one list per fridge id.
 
 ## Experiments
 
@@ -92,7 +108,7 @@ A real advancement tab ("Lab") with 9 experiments, granted as you do science:
 - **Never Trust Sodium** — drop an alkali metal into water. Yes, any of the six. Yes,
   it does what you think it does. Stand back.
 - **Spin Cycle** — centrifuge a compound
-- **Cold Storage** — set up a Lab Fridge
+- **Cold Storage** — install a Lab Fridge
 
 ## How it works (nerd corner)
 
@@ -108,11 +124,14 @@ A real advancement tab ("Lab") with 9 experiments, granted as you do science:
 
 ## Notes / known rough edges
 
-- Recipes assume the cauldron sits where items can rest **inside** it — don't put a
-  hopper under the cauldron block, hoppers don't steal from cauldrons but the capsule
-  spawn point is just above the rim.
 - The alkali-water TNT has a real blast. That is a feature, but maybe not indoors.
+- The resource pack's invisible-spawner override affects **every spawner in the
+  world** (dungeons included — they still work, you just see no cage). That's the
+  known cost of the mob-spawner custom-block method.
+- Machine models don't auto-rotate toward the player; the shipped models are designed
+  to read well from all sides.
 - `advancement grant` drives the experiments, so they also show for players in
   spectator who happen to be nearest to a sodium splash — cosmetic quirk.
-- `/function lab:uninstall` removes markers, scoreboards and the registry; element and
-  vial items already in chests stay behind as ordinary (harmless) items.
+- `/function lab:uninstall` retires machines (fridges dump contents), removes
+  scoreboards and registries; element and vial items already in chests stay behind as
+  ordinary (harmless) items.

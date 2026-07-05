@@ -1,0 +1,19 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "lab_fridge",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:block/fridge"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:block/iron_block"
+    }
+  }
+}
