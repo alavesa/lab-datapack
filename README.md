@@ -1,20 +1,24 @@
-# Pneumatic Tubes — datapack
+# Lab — datapack
 
 [![Reviewed by PatchPilots](https://img.shields.io/badge/Reviewed%20by-PatchPilots-8A2BE2)](https://github.com/alavesa/patchpilots)
 
-Pneumatic mail tubes for Minecraft — drop items into a station barrel and a capsule
-whooshes them through glass tubing to the station at the other end. No hoppers, no
-redstone, no plugins. Built for facility / SCP-style servers, and idea **#174 / #690**
-from [minecraft-500-ideas](https://github.com/alavesa/minecraft-500-ideas).
+Facility systems for Minecraft as a pure vanilla datapack — the world-side companion to
+[labra-plugin](https://github.com/alavesa/labra-plugin). No plugins required, works in
+singleplayer and on any server.
 
-Everything is vanilla: stations are named barrels, tubes are ordinary glass (or copper
-grates), and the travelling capsule is a single `item_display` showing the actual stack
-gliding through the tube.
+> **Renamed:** this repo started life as `pneumatic-tube-datapack`. Old links redirect
+> here automatically.
+
+**Module 1: Pneumatic Tubes** — drop items into a station barrel and a capsule whooshes
+them through glass tubing to the station at the other end. No hoppers, no redstone.
+Ideas **#174 / #690** from [minecraft-500-ideas](https://github.com/alavesa/minecraft-500-ideas).
 
 ## Install
 
-Drop the `PneumaticTubes` folder into `<world>/datapacks/` and `/reload`.
-Requires 1.21.5+ (pack_format 88).
+1. Drop the `Lab` folder into `<world>/datapacks/` and `/reload`.
+   Requires 1.21.5+ (pack_format 88).
+2. *(Optional)* Add `LabResourcePack.zip` to `.minecraft/resourcepacks/` (or as the
+   server resource pack) to give copper-grate tubes a proper lab-tube look.
 
 ## Quick start
 
@@ -33,9 +37,24 @@ Anything in the `#pneumatic:tube` block tag counts as tubing:
 
 - `glass` and all 16 stained glass colors (color-code your wings!)
 - `tinted_glass` — for "opaque" utility-corridor pipes
-- all copper grates (waxed and unwaxed) — industrial look, see-through
+- all copper grates (waxed and unwaxed) — **the designated lab-tube blocks**, see below
 
 Edit `data/pneumatic/tags/block/tube.json` to add your own.
+
+## Custom tube models (resource pack)
+
+Vanilla can't attach custom models to *blocks* the way `custom_model_data` works for
+items, so the lab-tube look ships as a small resource pack (`resource-pack/`) that
+retextures the **copper grate** (waxed uses the same model, so both get the look):
+
+- out of the box you get a steel-framed tube segment with a porthole ring —
+  see-through, cutout-safe, works from every angle
+- `exposed`/`weathered`/`oxidized` grates keep their vanilla look, so you have three
+  spare grate variants to theme yourself (mail / cargo / hazmat lines?)
+- want a real 3D pipe with joints? Replace the model in Blockbench —
+  see [CUSTOM-MODEL.md](CUSTOM-MODEL.md)
+
+The datapack works fine without the resource pack; tubes just look like plain grates.
 
 ## Routing rules
 
@@ -83,3 +102,6 @@ Simple and deterministic — no pathfinding:
   stack by stack. That's the pneumatic-mail aesthetic, not a bug.
 - A tube loop can bring a capsule back to its own station. It will happily deliver to
   itself. Don't build loops.
+- The resource pack retexture applies to copper grates **everywhere** in the world, not
+  just ones used as tubes — that's how block retextures work. If you use grates
+  decoratively elsewhere, theme one of the spare oxidation variants instead.

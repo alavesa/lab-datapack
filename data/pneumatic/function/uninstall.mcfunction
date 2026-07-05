@@ -7,4 +7,4 @@ scoreboard objectives remove pn.dx
 scoreboard objectives remove pn.dy
 scoreboard objectives remove pn.dz
 scoreboard objectives remove pn.ttl
-tellraw @a {"text":"[Pneumatic Tubes] Uninstalled - capsules landed, station markers and scoreboards removed. Safe to disable the pack.","color":"yellow"}
+tellraw @a {"text":"[Lab] Uninstalled - capsules landed, station markers and scoreboards removed. Safe to disable the pack.","color":"yellow"}

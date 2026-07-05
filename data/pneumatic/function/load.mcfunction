@@ -6,4 +6,4 @@ scoreboard objectives add pn.dy dummy
 scoreboard objectives add pn.dz dummy
 scoreboard objectives add pn.ttl dummy
 
-tellraw @a {"text":"[Pneumatic Tubes v0.1] Loaded. /function pneumatic:give/station -> place two stations, connect them with glass tubing, drop items in one of the barrels.","color":"aqua"}
+tellraw @a {"text":"[Lab v0.2] Loaded. Pneumatic tubes: /function pneumatic:give/station -> place two stations, connect them with glass tubing, drop items in one of the barrels.","color":"aqua"}
