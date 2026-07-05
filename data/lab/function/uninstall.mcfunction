@@ -7,6 +7,7 @@ scoreboard objectives remove lab.var
 scoreboard objectives remove lab.rod
 scoreboard objectives remove lab.rxn
 scoreboard objectives remove lab.id
+scoreboard objectives remove lab.age
 data remove storage lab:elements
 data remove storage lab:fridges
 data remove storage lab:tmp

@@ -46,30 +46,56 @@ Book + Stirring Rod + starter atoms. Then:
   symbols with hover info — or directly: `/function lab:e {s:"Na"}`.
 - Elements don't stack (1 item = 1 atom). That's what makes recipe counting honest.
 
-## Compounds (18 recipes)
+## Compounds — the complete list (18 recipes)
 
-Throw the exact atoms into a dry cauldron and stir:
+The in-game **Lab Manual** (`/function lab:give/manual`, included in the kit) lists all
+of these too — and every formula in it is **clickable: click to receive exactly the
+atoms you need**.
 
-| Formula | Compound | Drinking it… |
-|---|---|---|
-| H2, O2, N2 | diatomic gases | H2 lifts you off the ground, O2 = water breathing |
-| H2O | Water | is refreshing but uneventful |
-| H2O2 | Hydrogen Peroxide | heals a bit (antiseptic!) |
-| CO2 / CO | Carbon Di-/Monoxide | slows you / poisons you |
-| CH4 | Methane | nauseates |
-| NH3 | Ammonia | blinds (pungent!) |
-| NaCl | Salt | makes you hungry |
-| HCl, H2SO4 | acids | hurts. It's acid. |
-| NaOH | Lye | also hurts |
-| SO2 | Sulfur Dioxide | poisons |
-| C2H5OH | Ethanol | nausea, obviously |
-| C6H12O6 | Glucose | speed + haste, **bonus: 3 sugar** |
-| Fe2O3 | Rust | **bonus: raw iron** |
-| SiO2 | Silica | **bonus: 2 glass** |
+| Formula | Compound | Atoms | Effect / bonus |
+|---|---|---|---|
+| H2 | Hydrogen Gas | 2 H | drink: brief levitation |
+| O2 | Oxygen Gas | 2 O | drink: water breathing |
+| N2 | Nitrogen Gas | 2 N | inert |
+| H2O | Water | 2 H + O | refreshing |
+| H2O2 | Hydrogen Peroxide | 2 H + 2 O | drink: small heal |
+| CO2 | Carbon Dioxide | C + 2 O | drink: slowness |
+| CO | Carbon Monoxide | C + O | drink: poison |
+| CH4 | Methane | C + 4 H | drink: nausea |
+| NH3 | Ammonia | N + 3 H | drink: blindness |
+| NaCl | Salt | Na + Cl | drink: hunger |
+| HCl | Hydrochloric Acid | H + Cl | drink: acid damage |
+| NaOH | Lye | Na + O + H | drink: acid damage |
+| SO2 | Sulfur Dioxide | S + 2 O | drink: poison |
+| H2SO4 | Sulfuric Acid | 2 H + S + 4 O | drink: heavy acid damage |
+| C2H5OH | Ethanol | 2 C + 6 H + O | drink: nausea |
+| C6H12O6 | Glucose | 6 C + 12 H + 6 O | speed + haste, **bonus: 3 sugar** |
+| Fe2O3 | Rust | 2 Fe + 3 O | **bonus: raw iron** |
+| SiO2 | Silica | Si + 2 O | **bonus: 2 glass** |
 
 Compounds are colored vials (potion items) — drinkable, storable, centrifugable.
 The mix must match a formula **exactly**: nothing missing, nothing extra, or it fizzles
 (nothing is consumed on a fizzle).
+
+## Handling rules — elements are hazardous now
+
+Most elements are safe to handle bare-handed. The rest teach you lab safety the hard
+way (each hazard is written on the item's tooltip):
+
+- **Radioactive** (Tc, Pm, Po, At, Rn, Fr, Ra and everything from Ac to Og): wither +
+  geiger clicks while *anywhere* in your inventory. An **iron chestplate** (your lead
+  apron) blocks it — and fridge storage is fully shielded.
+- **Toxic metals** (Hg, Pb, As, Cd, Tl, Be): **cannot be held bare-handed** — the
+  sample jumps out of your hand with a poison sting. Wear the iron chestplate (PPE)
+  to handle them; carrying them in your pack is fine.
+- **Gases** (H, N, O, F, Cl and the noble gases): as dropped items they drift upward
+  and **escape for good after ~30s** unless capped inside a cauldron (any kind) or a
+  fridge.
+- **Phosphorus**: smokes and **ignites within seconds in open air** — store it under
+  water or in a cauldron, like a real lab does.
+- **F / Cl in water**: dissolve into a lingering poison cloud.
+- **Alkali metals** (Li, Na, K, Rb, Cs, Fr) in water: still TNT. Chemistry class was
+  right.
 
 ## Machines — custom 3D models with real hitboxes
 

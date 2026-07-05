@@ -1,5 +1,6 @@
-# Starter kit: the book, the rod and enough atoms for your first water.
+# Starter kit: the books, the rod and enough atoms for your first water.
 function lab:give/table
+function lab:give/manual
 function lab:give/rod
 function lab:e {s:"H"}
 function lab:e {s:"H"}
