@@ -1,5 +1,5 @@
-# Stirring Rod right-clicks (reaction trigger)
-execute as @a[scores={lab.rod=1..}] run function lab:react/start
+# Stirring Rod / machine kit right-clicks
+execute as @a[scores={lab.rod=1..}] run function lab:used_stick
 scoreboard players set @a lab.rod 0
 
 # Machine right-clicks: interaction entities record them in their `interaction`

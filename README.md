@@ -112,8 +112,11 @@ still explosions; hazmat is not blast armor.
 
 ## Machines — custom 3D models with real hitboxes
 
-Machines are placed with a look-raycast (`/function lab:place/centrifuge`,
-`/function lab:place/fridge` — aim at the floor) and built the **mob-spawner way**:
+Get a machine with `/function lab:give/centrifuge` or `/function lab:give/fridge`
+(both come in the kit): a **kit item** you right-click while looking at the floor —
+the machine installs there and the kit is consumed. (Ops can also install directly
+with `/function lab:place/centrifuge` / `lab:place/fridge`.) Machines are built the
+**mob-spawner way**:
 a spawner block for collision (the resource pack renders it invisible), an
 `item_display` for the 3D model, and an `interaction` entity so **right-clicking the
 machine actually does things**. Ship-with models are built from vanilla textures;

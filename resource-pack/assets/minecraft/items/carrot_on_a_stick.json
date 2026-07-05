@@ -1,0 +1,26 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "lab_centrifuge_kit",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:block/centrifuge"
+        }
+      },
+      {
+        "when": "lab_fridge_kit",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:block/fridge"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/carrot_on_a_stick"
+    }
+  }
+}
