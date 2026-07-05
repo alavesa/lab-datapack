@@ -2,4 +2,4 @@
 function lab:e {s:"Si"}
 function lab:e {s:"O"}
 function lab:e {s:"O"}
-tellraw @s {"text":"[Lab] Atoms for Silica (SiO2): Si + 2 O. Into a dry cauldron with them!","color":"aqua"}
+title @s actionbar {"text":"Received: Si + 2 O.","color":"gray"}

@@ -4,4 +4,4 @@ execute unless items entity @s weapon.mainhand *[minecraft:custom_data~{lab_rod:
 scoreboard players set #steps lab.var 20
 scoreboard players set #found lab.var 0
 execute at @s anchored eyes positioned ^ ^ ^ run function lab:react/ray
-execute if score #found lab.var matches 0 run tellraw @s {"text":"[Lab] No cauldron in sight (within ~6 blocks). Look at a dry cauldron holding your elements.","color":"red"}
+execute if score #found lab.var matches 0 run title @s actionbar {"text":"There is nothing to stir here.","color":"gray"}

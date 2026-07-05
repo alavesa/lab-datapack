@@ -6,5 +6,5 @@ scoreboard players set @e[type=marker,tag=lab.newfume,limit=1] lab.age 8
 tag @e[type=marker,tag=lab.newfume] remove lab.newfume
 particle minecraft:sneeze ~0.5 ~0.5 ~0.5 0.3 0.3 0.3 0.02 20
 playsound minecraft:block.brewing_stand.brew block @a[distance=..12] ~ ~ ~ 0.8 0.7
-tellraw @a[distance=..12] {"text":"[Lab] The halogen dissolves - poisonous fumes!","color":"green"}
+title @a[distance=..10] actionbar {"text":"The sample dissolves into toxic fumes.","color":"gray"}
 kill @s

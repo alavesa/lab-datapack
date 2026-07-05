@@ -10,5 +10,5 @@ summon item ~ ~0.4 ~ {PickupDelay:20,Item:{id:"minecraft:firework_star",count:1,
 summon item ~ ~0.4 ~ {PickupDelay:20,Item:{id:"minecraft:firework_star",count:1,components:{"minecraft:custom_name":{text:"Oxygen",color:"aqua",italic:false},"minecraft:lore":[{text:"O - element 8",color:"gray",italic:false},{text:"GAS - floats away; keep in a cauldron or fridge",color:"aqua",italic:false}],"minecraft:custom_data":{lab_element:"O",lab_is_element:1b,lab_gas:1b},"minecraft:max_stack_size":1,"minecraft:firework_explosion":{shape:"small_ball",colors:[I;5636095]}}}}
 summon item ~ ~0.4 ~ {PickupDelay:20,Item:{id:"minecraft:firework_star",count:1,components:{"minecraft:custom_name":{text:"Oxygen",color:"aqua",italic:false},"minecraft:lore":[{text:"O - element 8",color:"gray",italic:false},{text:"GAS - floats away; keep in a cauldron or fridge",color:"aqua",italic:false}],"minecraft:custom_data":{lab_element:"O",lab_is_element:1b,lab_gas:1b},"minecraft:max_stack_size":1,"minecraft:firework_explosion":{shape:"small_ball",colors:[I;5636095]}}}}
 advancement grant @p only lab:spin_cycle
-tellraw @a[distance=..8] {"text":"[Lab] Centrifuged Sulfuric Acid (H2SO4) -> 2 H + S + 4 O","color":"aqua"}
+title @a[distance=..8] actionbar {"text":"Separated Sulfuric Acid into 2 H + S + 4 O.","color":"gray"}
 kill @s

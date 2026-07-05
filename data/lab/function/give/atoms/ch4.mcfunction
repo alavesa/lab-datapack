@@ -4,4 +4,4 @@ function lab:e {s:"H"}
 function lab:e {s:"H"}
 function lab:e {s:"H"}
 function lab:e {s:"H"}
-tellraw @s {"text":"[Lab] Atoms for Methane (CH4): C + 4 H. Into a dry cauldron with them!","color":"aqua"}
+title @s actionbar {"text":"Received: C + 4 H.","color":"gray"}

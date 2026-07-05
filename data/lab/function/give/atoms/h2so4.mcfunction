@@ -6,4 +6,4 @@ function lab:e {s:"O"}
 function lab:e {s:"O"}
 function lab:e {s:"O"}
 function lab:e {s:"O"}
-tellraw @s {"text":"[Lab] Atoms for Sulfuric Acid (H2SO4): 2 H + S + 4 O. Into a dry cauldron with them!","color":"aqua"}
+title @s actionbar {"text":"Received: 2 H + S + 4 O.","color":"gray"}

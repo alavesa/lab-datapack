@@ -10,7 +10,7 @@ playsound minecraft:block.brewing_stand.brew block @a[distance=..16] ~0.5 ~0.5 ~
 playsound minecraft:entity.experience_orb.pickup block @a[distance=..16] ~0.5 ~0.5 ~0.5 0.6 1.4
 particle minecraft:bubble_pop ~0.5 ~0.9 ~0.5 0.2 0.15 0.2 0.1 25
 particle minecraft:witch ~0.5 ~1 ~0.5 0.2 0.1 0.2 0 8
-tellraw @a[distance=..8] {"text":"[Lab] C + 2 O -> Carbon Dioxide (CO2)","color":"aqua"}
+title @a[distance=..8] actionbar {"text":"The mixture becomes Carbon Dioxide.","color":"gray"}
 # experiments
 scoreboard players add @s lab.rxn 1
 advancement grant @s only lab:first_compound

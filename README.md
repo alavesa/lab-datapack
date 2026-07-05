@@ -30,7 +30,8 @@ updating, so tube markers and scoreboards get cleaned up.
 /function lab:give/kit
 ```
 
-Book + Stirring Rod + starter atoms. Then:
+Books + Stirring Rod + Pipette + starter atoms (machines are installed separately
+with the op commands below). Then:
 
 1. Place a **cauldron**. Keep it **dry** — water is for accidents.
 2. Toss in `2 × Hydrogen` and `1 × Oxygen` (click symbols in the book to get more).
@@ -115,19 +116,27 @@ still explosions; hazmat is not blast armor.
 
 ## Machines — custom 3D models with real hitboxes
 
-Get a machine with `/function lab:give/centrifuge` or `/function lab:give/fridge`
-(both come in the kit): a **kit item** you right-click while looking at the floor —
-the machine installs there and the kit is consumed. (Ops can also install directly
-with `/function lab:place/centrifuge` / `lab:place/fridge`.) Machines are built the
+Machines exist **only through op-level commands** — there are no placeable machine
+items, so regular players cannot spawn or remove them:
+
+```
+/function lab:place/centrifuge     /function lab:place/fridge
+/function lab:place/burner         /function lab:place/rack
+```
+
+Aim at the floor; the machine installs in the spot you're looking at and **faces the
+direction you're facing** (snapped to the nearest cardinal). Machines are built the
 **mob-spawner way**:
 a spawner block for collision (the resource pack renders it invisible), an
 `item_display` for the 3D model, and an `interaction` entity so **right-clicking the
 machine actually does things**. Ship-with models are built from vanilla textures;
 swap in your own Blockbench models — see [CUSTOM-MODEL.md](CUSTOM-MODEL.md).
-**Dismantling:** the interaction box eats block hits, so the machines are punch-proof
-for regular players. An op runs `/function lab:admin` once (toggle) — after that,
-punching a machine dismantles it and **refunds the kit item** (fridges drop their
-contents first). `/function lab:remove` (machines within 5 blocks) works too.
+**Dismantling is op-only.** The interaction box eats block hits, so machines are
+punch-proof for regular players (they just get a gray *"It's bolted down tight."*).
+An op runs `/function lab:admin` once (toggle; running functions requires op, so the
+gate is built in) — after that, punching a machine removes it. Fridges and racks drop
+their contents first, so nothing is lost. `/function lab:remove` (machines within 5
+blocks) works too.
 
 ### Centrifuge
 
@@ -136,7 +145,7 @@ into its element items. Full round trip: elements → compound → elements.
 
 ### Gas Burner
 
-A squat brass burner (`/function lab:give/burner`). Click to light/extinguish. Its
+A squat brass burner. Click to light/extinguish. Its
 hitbox is deliberately short, so you can **place a cauldron right on top** — and
 that's the point: **four recipes need heat** (H2SO4, glucose, rust, silica) and only
 react when a lit burner sits directly under the cauldron. Heated products come out
@@ -144,7 +153,7 @@ in **boiling flasks** instead of test tubes.
 
 ### Test Tube Rack
 
-Lab furniture (`/function lab:give/rack`, no collision block): click it while holding
+Lab furniture (no collision block): click it while holding
 a compound tube to shelf it — **the tube appears standing in the rack**, up to six,
 colors visible. Click empty-handed to take the last one back. Dismantling pops every
 tube out.

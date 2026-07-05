@@ -1,5 +1,5 @@
 # Macro ($(id)): pop the most recently shelved tube back out.
-$execute unless data storage lab:racks r$(id)[0] run return run execute on target run title @s actionbar {"text":"[Lab] The rack is empty - click it while holding a tube to shelf one.","color":"yellow"}
+$execute unless data storage lab:racks r$(id)[0] run return run execute on target run title @s actionbar {"text":"The rack is empty.","color":"gray"}
 $data modify storage lab:tmp take set from storage lab:racks r$(id)[-1]
 $data remove storage lab:racks r$(id)[-1]
 summon item ~ ~0.7 ~ {PickupDelay:5,Tags:["lab.drop"],Item:{id:"minecraft:stone"}}

@@ -5,7 +5,7 @@ $execute as @e[type=item,distance=..2,nbt={Item:{components:{"minecraft:custom_d
 $execute as @e[type=item,distance=..2,nbt={Item:{components:{"minecraft:custom_data":{lab_is_compound:1b}}}}] run function lab:fridge/absorb {id:$(id)}
 scoreboard players set #tot lab.var 0
 $execute if data storage lab:fridges f$(id) store result score #tot lab.var run data get storage lab:fridges f$(id)
-execute if score #dep lab.var matches 0 run return run execute on target run title @s actionbar {"text":"[Lab] Nothing to store - drop your elements/vials next to the fridge, then click it.","color":"yellow"}
+execute if score #dep lab.var matches 0 run return run execute on target run title @s actionbar {"text":"There is nothing here to store.","color":"gray"}
 playsound minecraft:block.barrel.close block @a[distance=..12] ~ ~0.5 ~ 0.6 1.3
 particle minecraft:snowflake ~ ~0.9 ~ 0.25 0.25 0.25 0.02 12
-execute on target run title @s actionbar [{"text":"[Lab] Stored ","color":"aqua"},{"score":{"name":"#dep","objective":"lab.var"},"color":"white"},{"text":" item(s) - the fridge now holds ","color":"aqua"},{"score":{"name":"#tot","objective":"lab.var"},"color":"white"},{"text":".","color":"aqua"}]
+execute on target run title @s actionbar [{"text":"Stored ","color":"gray"},{"score":{"name":"#dep","objective":"lab.var"},"color":"gray"},{"text":" samples. The fridge holds ","color":"gray"},{"score":{"name":"#tot","objective":"lab.var"},"color":"gray"},{"text":".","color":"gray"}]

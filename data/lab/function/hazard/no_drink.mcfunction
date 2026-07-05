@@ -4,5 +4,5 @@
 advancement revoke @s only lab:no_drink
 execute if score @s lab.sip matches 1.. run return 0
 scoreboard players set @s lab.sip 3
-tellraw @s {"text":"I shouldn't drink this.","color":"gray","italic":true}
+title @s actionbar {"text":"I shouldn't drink this.","color":"gray","italic":true}
 playsound minecraft:entity.villager.no player @s ~ ~ ~ 0.35 1.2
