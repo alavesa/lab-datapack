@@ -2,106 +2,117 @@
 
 [![Reviewed by PatchPilots](https://img.shields.io/badge/Reviewed%20by-PatchPilots-8A2BE2)](https://github.com/alavesa/patchpilots)
 
-Facility systems for Minecraft as a pure vanilla datapack — the world-side companion to
-[labra-plugin](https://github.com/alavesa/labra-plugin). No plugins required, works in
-singleplayer and on any server.
+Chemistry for Minecraft as a pure vanilla datapack: all **118 elements**, a clickable
+**periodic table book**, **compound synthesis** in a cauldron, **centrifuges** that split
+compounds back apart, **lab fridges** for storage and an **experiments** advancement tree.
+No plugins, no resource pack — companion to
+[labra-plugin](https://github.com/alavesa/labra-plugin).
 
-> **Renamed:** this repo started life as `pneumatic-tube-datapack`. Old links redirect
-> here automatically.
-
-**Module 1: Pneumatic Tubes** — drop items into a station barrel and a capsule whooshes
-them through glass tubing to the station at the other end. No hoppers, no redstone.
-Ideas **#174 / #690** from [minecraft-500-ideas](https://github.com/alavesa/minecraft-500-ideas).
+> **History:** this repo started as `pneumatic-tube-datapack` (old links redirect here).
+> The pneumatic tube module lived in [v0.2](../../releases/tag/v0.2) and was replaced by
+> chemistry in v0.3 — grab v0.2 if you want the tubes.
 
 ## Install
 
-1. Drop the `Lab` folder into `<world>/datapacks/` and `/reload`.
-   Requires 1.21.5+ (pack_format 88).
-2. *(Optional)* Add `LabResourcePack.zip` to `.minecraft/resourcepacks/` (or as the
-   server resource pack) to give copper-grate tubes a proper lab-tube look.
+Drop the `Lab` folder into `<world>/datapacks/` and `/reload`.
+Requires 1.21.5+ (pack_format 88). Commands need op / cheats.
+
+**Upgrading from v0.2 (tubes)?** Run the old `/function pneumatic:uninstall` *before*
+updating, so tube markers and scoreboards get cleaned up.
 
 ## Quick start
 
-1. `/function pneumatic:give/station` — gives a **Pneumatic Station** barrel. Place two
-   of them. Each one registers itself the moment you place it (green sparkles + chime).
-2. Connect the two barrels with a line of **glass blocks** — any face of the barrel,
-   corners and vertical runs are fine.
-3. Drop items into either barrel. Every ~0.4s the station launches the first stack as a
-   capsule that travels the tube (~10 blocks/s) and pops out at the other station.
+```
+/function lab:give/kit
+```
 
-No addressing, no channels: **the tube is the address.** One tube, two ends, done.
+Book + Stirring Rod + fridge + starter atoms. Then:
 
-## Tube blocks
+1. Place a **cauldron**. Keep it **dry** — water is for accidents.
+2. Toss in `2 × Hydrogen` and `1 × Oxygen` (click symbols in the book to get more).
+3. Look at the cauldron and **right-click the Stirring Rod** → bubbling, and a **Water**
+   vial pops out. That's your first experiment done.
 
-Anything in the `#pneumatic:tube` block tag counts as tubing:
+## Elements
 
-- `glass` and all 16 stained glass colors (color-code your wings!)
-- `tinted_glass` — for "opaque" utility-corridor pipes
-- all copper grates (waxed and unwaxed) — **the designated lab-tube blocks**, see below
+- Every element is a color-coded item (firework star — the explosion color tints the
+  sprite, so categories get colors with **zero resource pack**): red alkali metals,
+  yellow transition metals, aqua nonmetals, blue noble gases…
+- Get them from the **Periodic Table book** (`/function lab:give/table`) — 118 clickable
+  symbols with hover info — or directly: `/function lab:e {s:"Na"}`.
+- Elements don't stack (1 item = 1 atom). That's what makes recipe counting honest.
 
-Edit `data/pneumatic/tags/block/tube.json` to add your own.
+## Compounds (18 recipes)
 
-## Custom tube models (resource pack)
+Throw the exact atoms into a dry cauldron and stir:
 
-Vanilla can't attach custom models to *blocks* the way `custom_model_data` works for
-items, so the lab-tube look ships as a small resource pack (`resource-pack/`) that
-retextures the **copper grate** (waxed uses the same model, so both get the look):
+| Formula | Compound | Drinking it… |
+|---|---|---|
+| H2, O2, N2 | diatomic gases | H2 lifts you off the ground, O2 = water breathing |
+| H2O | Water | is refreshing but uneventful |
+| H2O2 | Hydrogen Peroxide | heals a bit (antiseptic!) |
+| CO2 / CO | Carbon Di-/Monoxide | slows you / poisons you |
+| CH4 | Methane | nauseates |
+| NH3 | Ammonia | blinds (pungent!) |
+| NaCl | Salt | makes you hungry |
+| HCl, H2SO4 | acids | hurts. It's acid. |
+| NaOH | Lye | also hurts |
+| SO2 | Sulfur Dioxide | poisons |
+| C2H5OH | Ethanol | nausea, obviously |
+| C6H12O6 | Glucose | speed + haste, **bonus: 3 sugar** |
+| Fe2O3 | Rust | **bonus: raw iron** |
+| SiO2 | Silica | **bonus: 2 glass** |
 
-- out of the box you get a steel-framed tube segment with a porthole ring —
-  see-through, cutout-safe, works from every angle
-- `exposed`/`weathered`/`oxidized` grates keep their vanilla look, so you have three
-  spare grate variants to theme yourself (mail / cargo / hazmat lines?)
-- want a real 3D pipe with joints? Replace the model in Blockbench —
-  see [CUSTOM-MODEL.md](CUSTOM-MODEL.md)
+Compounds are colored vials (potion items) — drinkable, storable, centrifugable.
+The mix must match a formula **exactly**: nothing missing, nothing extra, or it fizzles
+(nothing is consumed on a fizzle).
 
-The datapack works fine without the resource pack; tubes just look like plain grates.
+## Centrifuge
 
-## Routing rules
+**Any grindstone is a centrifuge.** Drop a compound vial on top → within a second it
+spins up and splits the compound back into its element items. Full round trip:
+elements → compound → elements.
 
-Simple and deterministic — no pathfinding:
+## Lab Fridge
 
-- The capsule **prefers to keep going straight**; at a bend it takes the first available
-  branch in a fixed order (up, down, north, south, west, east). It never reverses.
-- The trip ends at the **first station barrel the capsule steps into**. A station on the
-  *side* of a through-line is passed by if the tube continues straight — so a straight
-  trunk line past a wing's station works the way you'd hope.
-- Dead end, broken tube or 512 blocks travelled → the capsule pops its payload right
-  there (fizzle sound + smoke). **Items are never deleted.**
-- Junctions are legal but deterministic, not smart. For predictable mail, build
-  point-to-point tubes: one tube, two stations.
+`/function lab:give/fridge` — a named barrel that registers itself when placed (same
+raycast trick as [keycard-datapack](https://github.com/alavesa/keycard-datapack)
+readers), hums with frost particles and stores your vial collection. Break it and it
+retires cleanly. Fallback registration: look at it and run `/function lab:register`.
 
-## Stations
+## Experiments
 
-- A station is any placed barrel named **Pneumatic Station** — the give-item works out
-  of the box, an anvil-renamed barrel works too.
-- Placement is auto-detected (advancement + a short raycast, same trick as
-  [keycard-datapack](https://github.com/alavesa/keycard-datapack) readers). If a station
-  ever fails to register, look at it and run `/function pneumatic:register`.
-- Arriving items pop out just above the receiving barrel with a dispense sound.
-- Breaking the barrel retires the station automatically (checked every 2s).
-- Misfeature-free removal: `/function pneumatic:uninstall` lands all in-flight capsules
-  and cleans up every marker and scoreboard.
+A real advancement tab ("Lab") with 9 experiments, granted as you do science:
+
+- **Baby's First Compound** — stir any successful reaction
+- **Two Parts Hydrogen** — synthesize water
+- **Sugar Rush** — synthesize glucose (24 atoms!)
+- **Handle With Care** — make an acid
+- **Chemist** — complete 10 reactions
+- **Never Trust Sodium** — drop an alkali metal into water. Yes, any of the six. Yes,
+  it does what you think it does. Stand back.
+- **Spin Cycle** — centrifuge a compound
+- **Cold Storage** — set up a Lab Fridge
 
 ## How it works (nerd corner)
 
-- The capsule is **one** `item_display`: its `item` field *is* the payload (full stack,
-  count included), `teleport_duration:2` makes the 1-block-per-2-ticks teleports render
-  as continuous motion.
-- Movement gating uses a scratch fake player (`#moved pn.var`) instead of a score on the
-  capsule — arrival kills the entity mid-function chain, and dead-entity score checks
-  fail silently rather than gate.
-- Station detection matches `CustomName` both as a text-component compound (the give
-  item) and as a plain string (anvil renames), so both survive 1.21.5+ NBT changes.
+- The element registry is a `data storage` compound; the book's click events call
+  `lab:e {s:"…"}`, which forwards the whole registry entry to a give-macro with
+  `function … with storage`. One macro function serves all 118 elements.
+- Reaction matching counts item entities inside the cauldron block per symbol
+  (`execute store result … if entity`), plus a total over all elements — exact-match
+  semantics make the 18 recipes mutually exclusive, so a stray gold atom in the mix
+  correctly blocks every recipe.
+- Stirring Rod = `used:carrot_on_a_stick` scoreboard criterion (the Flashlights trick),
+  raycast to the cauldron (the Keycards trick).
 
 ## Notes / known rough edges
 
-- Arriving items are **dropped above** the barrel, not inserted into it (vanilla has no
-  clean "insert into container" for dynamic stacks). Put a hopper feeding a chest under
-  the landing spot if you want automatic collection.
-- One stack per capsule, one capsule per station mouth at a time — a full barrel drains
-  stack by stack. That's the pneumatic-mail aesthetic, not a bug.
-- A tube loop can bring a capsule back to its own station. It will happily deliver to
-  itself. Don't build loops.
-- The resource pack retexture applies to copper grates **everywhere** in the world, not
-  just ones used as tubes — that's how block retextures work. If you use grates
-  decoratively elsewhere, theme one of the spare oxidation variants instead.
+- Recipes assume the cauldron sits where items can rest **inside** it — don't put a
+  hopper under the cauldron block, hoppers don't steal from cauldrons but the capsule
+  spawn point is just above the rim.
+- The alkali-water TNT has a real blast. That is a feature, but maybe not indoors.
+- `advancement grant` drives the experiments, so they also show for players in
+  spectator who happen to be nearest to a sodium splash — cosmetic quirk.
+- `/function lab:uninstall` removes markers, scoreboards and the registry; element and
+  vial items already in chests stay behind as ordinary (harmless) items.

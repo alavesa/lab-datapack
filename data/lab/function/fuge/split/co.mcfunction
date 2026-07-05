@@ -1,0 +1,9 @@
+# Centrifuge: Carbon Monoxide (CO) -> C + O
+playsound minecraft:block.grindstone.use block @a[distance=..16] ~ ~ ~ 1 1.6
+playsound minecraft:block.beacon.deactivate block @a[distance=..16] ~ ~ ~ 0.5 1.8
+particle minecraft:crit ~ ~0.3 ~ 0.25 0.15 0.25 0.3 20
+summon item ~ ~0.4 ~ {PickupDelay:20,Item:{id:"minecraft:firework_star",count:1,components:{"minecraft:custom_name":{text:"Carbon",color:"aqua",italic:false},"minecraft:lore":[{text:"C - element 6",color:"gray",italic:false}],"minecraft:custom_data":{lab_element:"C",lab_is_element:1b},"minecraft:max_stack_size":1,"minecraft:firework_explosion":{shape:"small_ball",colors:[I;5636095]}}}}
+summon item ~ ~0.4 ~ {PickupDelay:20,Item:{id:"minecraft:firework_star",count:1,components:{"minecraft:custom_name":{text:"Oxygen",color:"aqua",italic:false},"minecraft:lore":[{text:"O - element 8",color:"gray",italic:false}],"minecraft:custom_data":{lab_element:"O",lab_is_element:1b},"minecraft:max_stack_size":1,"minecraft:firework_explosion":{shape:"small_ball",colors:[I;5636095]}}}}
+advancement grant @p only lab:spin_cycle
+tellraw @a[distance=..8] {"text":"[Lab] Centrifuged Carbon Monoxide (CO) -> C + O","color":"aqua"}
+kill @s

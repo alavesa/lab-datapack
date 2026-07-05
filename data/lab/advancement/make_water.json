@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:potion",
+      "components": {
+        "minecraft:potion_contents": {
+          "custom_color": 4159204
+        }
+      }
+    },
+    "title": {
+      "text": "Two Parts Hydrogen"
+    },
+    "description": {
+      "text": "Synthesize water (2 H + O)."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "lab:first_compound"
+}

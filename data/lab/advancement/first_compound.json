@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:potion",
+      "components": {
+        "minecraft:potion_contents": {
+          "custom_color": 5636095
+        }
+      }
+    },
+    "title": {
+      "text": "Baby's First Compound"
+    },
+    "description": {
+      "text": "Stir any successful reaction in a dry cauldron."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "lab:root"
+}
