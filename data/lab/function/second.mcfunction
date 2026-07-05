@@ -9,3 +9,5 @@ execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_gas:
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_pyro:1b}}}}] at @s run function lab:hazard/pyro
 # radioactive / toxic samples on players
 execute as @a run function lab:hazard/player
+# "I shouldn't drink this" message cooldown
+scoreboard players remove @a[scores={lab.sip=1..}] lab.sip 1

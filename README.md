@@ -56,24 +56,26 @@ atoms you need**.
 |---|---|---|---|
 | H2 | Hydrogen Gas | 2 H | drink: brief levitation |
 | O2 | Oxygen Gas | 2 O | drink: water breathing |
-| N2 | Nitrogen Gas | 2 N | inert |
-| H2O | Water | 2 H + O | refreshing |
+| N2 | Nitrogen Gas | 2 N | not drinkable |
+| H2O | Water | 2 H + O | drink: refreshing |
 | H2O2 | Hydrogen Peroxide | 2 H + 2 O | drink: small heal |
-| CO2 | Carbon Dioxide | C + 2 O | drink: slowness |
-| CO | Carbon Monoxide | C + O | drink: poison |
-| CH4 | Methane | C + 4 H | drink: nausea |
-| NH3 | Ammonia | N + 3 H | drink: blindness |
-| NaCl | Salt | Na + Cl | drink: hunger |
-| HCl | Hydrochloric Acid | H + Cl | drink: acid damage |
-| NaOH | Lye | Na + O + H | drink: acid damage |
-| SO2 | Sulfur Dioxide | S + 2 O | drink: poison |
-| H2SO4 | Sulfuric Acid | 2 H + S + 4 O | drink: heavy acid damage |
-| C2H5OH | Ethanol | 2 C + 6 H + O | drink: nausea |
-| C6H12O6 | Glucose | 6 C + 12 H + 6 O | speed + haste, **bonus: 3 sugar** |
-| Fe2O3 | Rust | 2 Fe + 3 O | **bonus: raw iron** |
-| SiO2 | Silica | Si + 2 O | **bonus: 2 glass** |
+| CO2 | Carbon Dioxide | C + 2 O | not drinkable |
+| CO | Carbon Monoxide | C + O | not drinkable |
+| CH4 | Methane | C + 4 H | not drinkable |
+| NH3 | Ammonia | N + 3 H | not drinkable |
+| NaCl | Salt | Na + Cl | not drinkable |
+| HCl | Hydrochloric Acid | H + Cl | not drinkable |
+| NaOH | Lye | Na + O + H | not drinkable |
+| SO2 | Sulfur Dioxide | S + 2 O | not drinkable |
+| H2SO4 | Sulfuric Acid | 2 H + S + 4 O | not drinkable |
+| C2H5OH | Ethanol | 2 C + 6 H + O | not drinkable |
+| C6H12O6 | Glucose | 6 C + 12 H + 6 O | drink: speed + haste, **bonus: 3 sugar** |
+| Fe2O3 | Rust | 2 Fe + 3 O | not drinkable, **bonus: raw iron** |
+| SiO2 | Silica | Si + 2 O | not drinkable, **bonus: 2 glass** |
 
-Compounds are colored vials (potion items) — drinkable, storable, centrifugable.
+Compounds are colored vials (potion items) — storable and centrifugable. The sensible
+ones (H2, O2, H2O, H2O2, glucose) are drinkable; try to drink anything else and your
+character refuses with a quiet *"I shouldn't drink this."* (the tooltip warns you too).
 The mix must match a formula **exactly**: nothing missing, nothing extra, or it fizzles
 (nothing is consumed on a fizzle).
 

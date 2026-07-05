@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "sip": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:potion",
+          "predicates": {
+            "minecraft:custom_data": { "lab_no_drink": true }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "lab:hazard/no_drink"
+  }
+}
