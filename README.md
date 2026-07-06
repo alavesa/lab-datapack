@@ -117,39 +117,61 @@ still explosions; hazmat is not blast armor.
 ## Machines — custom 3D models with real hitboxes
 
 Machines exist **only through op-level commands** — there are no placeable machine
-items, so regular players cannot spawn or remove them:
+items, so regular players cannot spawn them:
 
 ```
-/function lab:place/centrifuge     /function lab:place/fridge
-/function lab:place/burner         /function lab:place/rack
+/function lab:place/creator        /function lab:place/centrifuge
+/function lab:place/fridge         /function lab:place/burner
+/function lab:place/rack
 ```
 
 Aim at the floor; the machine installs in the spot you're looking at and **faces the
-direction you're facing** (snapped to the nearest cardinal). Machines are built the
-**mob-spawner way**:
+direction you're facing** (snapped to the nearest cardinal). Since v0.12 the working
+machines are **real container blocks with real GUIs**, dressed up by `item_display`
+models:
+
+### Compound Creator — reactions in a GUI
+
+The easy way to do chemistry. A dispenser named **Compound Creator**: right-click to
+open its **3×3 grid**, lay the atoms in — e.g. **2 × Hydrogen + 1 × Oxygen** — and the
+logic scans the grid every 0.4s. The instant the contents exactly match a formula,
+they **become the compound tube right there in the grid** (with the brewing fizz).
+A non-element item in the grid safely blocks all reactions; nothing is ever eaten by
+mistake. Hot recipes need a burning Gas Burner directly below. Glucose (24 atoms)
+doesn't fit in 9 slots — that one still wants the cauldron.
+
+The cauldron + Stirring Rod workflow still works for purists (and for glucose).
 a spawner block for collision (the resource pack renders it invisible), an
 `item_display` for the 3D model, and an `interaction` entity so **right-clicking the
 machine actually does things**. Ship-with models are built from vanilla textures;
 swap in your own Blockbench models — see [CUSTOM-MODEL.md](CUSTOM-MODEL.md).
-**Dismantling is op-only.** The interaction box eats block hits, so machines are
-punch-proof for regular players (they just get a gray *"It's bolted down tight."*).
-An op runs `/function lab:admin` once (toggle; running functions requires op, so the
-gate is built in) — after that, punching a machine removes it. Fridges and racks drop
-their contents first, so nothing is lost. `/function lab:remove` (machines within 5
-blocks) works too.
+**Removal:** `/function lab:remove` (op) retires machines within 5 blocks, always
+dropping contents. The rack is punch-proof for regular players (*"It's bolted down
+tight."*) — an op toggles `/function lab:admin` to dismantle it by punching. Honest
+tradeoff of the GUI approach: the container-based machines are real blocks, so they
+*can* be mined like any block — the marker cleans up and the contents drop, nothing
+is lost, but if players must not move lab equipment, protect the area.
 
-### Centrifuge
+### Centrifuge — GUI
 
-Drop a compound tube onto the machine and **right-click** → it spins the tube apart
-into its element items. Full round trip: elements → compound → elements.
+A dropper named **Centrifuge** with the drum model on top: open the grid, put a
+compound tube in → the tube vanishes from the grid and **its atoms burst out of the
+drum**. Full round trip: elements → compound → elements.
 
-### Gas Burner
+### Lab Fridge — GUI
 
-A squat brass burner. Click to light/extinguish. Its
-hitbox is deliberately short, so you can **place a cauldron right on top** — and
-that's the point: **four recipes need heat** (H2SO4, glucose, rust, silica) and only
-react when a lit burner sits directly under the cauldron. Heated products come out
-in **boiling flasks** instead of test tubes.
+A barrel named **Lab Fridge**, fully wrapped in the tall cabinet model (the barrel is
+hidden inside; clicks pass through the display to the real GUI). **27 slots of cold
+storage** with frost coming off it — and since stored items aren't entities or
+inventory, **radiation never escapes a fridge**.
+
+### Gas Burner — GUI
+
+A furnace named **Gas Burner**. Fuel it like a furnace (coal + anything smeltable) to
+keep the flame going — **four recipes need heat** (H2SO4, glucose, rust, silica) and
+only react while a **burning** Gas Burner sits directly under the cauldron or
+Compound Creator. Heated products come out in **boiling flasks** instead of test
+tubes. When the fuel runs out, the heat is gone — bring coal.
 
 ### Test Tube Rack
 
