@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lab:item/cup_liquid",
+    "layer1": "lab:item/cup"
+  }
+}

@@ -8,8 +8,10 @@ scoreboard objectives add lab.rxn dummy
 scoreboard objectives add lab.id dummy
 # Hazard timers on item entities (gas escape / phosphorus ignition)
 scoreboard objectives add lab.age dummy
-# SCP-009 infection progression per player
+# SCP-009 infection progression per player (any contact starts it)
 scoreboard objectives add lab.inf dummy
+# SCP-207 progression timer per player
+scoreboard objectives add lab.cola dummy
 # "I shouldn't drink this" message cooldown per player
 scoreboard objectives add lab.sip dummy
 

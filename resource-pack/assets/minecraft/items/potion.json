@@ -28,6 +28,305 @@
             }
           ]
         }
+      },
+      {
+        "when": "lab_cup_coffee",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/coffee",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_cocoa",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/cocoa",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_cola",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/cola",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_estus",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/estus",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_god",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/god",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_h2",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/h2",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_o2",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/o2",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_n2",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/n2",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_h2o",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/h2o",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_h2o2",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/h2o2",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_co2",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/co2",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_co",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/co",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_ch4",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/ch4",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_nh3",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/nh3",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_nacl",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/nacl",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_hcl",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/hcl",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_naoh",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/naoh",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_so2",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/so2",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_h2so4",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/h2so4",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_ethanol",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/ethanol",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_glucose",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/glucose",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_fe2o3",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/fe2o3",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_cup_sio2",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/cup/sio2",
+          "tints": [
+            {
+              "type": "minecraft:potion",
+              "default": -13083194
+            }
+          ]
+        }
       }
     ],
     "fallback": {

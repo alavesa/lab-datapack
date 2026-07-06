@@ -20,5 +20,7 @@ execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{scp009:1
 execute as @a run function lab:hazard/player
 # SCP-009 infections run their course
 execute as @a[scores={lab.inf=1..}] run function lab:hazard/infection
+# SCP-207 runs its course
+execute as @a[scores={lab.cola=1..}] run function lab:hazard/cola
 # "I shouldn't drink this" message cooldown
 scoreboard players remove @a[scores={lab.sip=1..}] lab.sip 1
