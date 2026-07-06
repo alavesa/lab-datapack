@@ -1,0 +1,19 @@
+# As a compound tube item resting in/on the centrifuge: dispatch by formula.
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"H2"}}}}] run return run function lab:fuge/split/h2
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"O2"}}}}] run return run function lab:fuge/split/o2
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"N2"}}}}] run return run function lab:fuge/split/n2
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"H2O"}}}}] run return run function lab:fuge/split/h2o
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"H2O2"}}}}] run return run function lab:fuge/split/h2o2
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"CO2"}}}}] run return run function lab:fuge/split/co2
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"CO"}}}}] run return run function lab:fuge/split/co
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"CH4"}}}}] run return run function lab:fuge/split/ch4
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"NH3"}}}}] run return run function lab:fuge/split/nh3
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"NaCl"}}}}] run return run function lab:fuge/split/nacl
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"HCl"}}}}] run return run function lab:fuge/split/hcl
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"NaOH"}}}}] run return run function lab:fuge/split/naoh
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"SO2"}}}}] run return run function lab:fuge/split/so2
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"H2SO4"}}}}] run return run function lab:fuge/split/h2so4
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"C2H5OH"}}}}] run return run function lab:fuge/split/ethanol
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"C6H12O6"}}}}] run return run function lab:fuge/split/glucose
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"Fe2O3"}}}}] run return run function lab:fuge/split/fe2o3
+execute if entity @s[nbt={Item:{components:{"minecraft:custom_data":{lab_compound:"SiO2"}}}}] run return run function lab:fuge/split/sio2

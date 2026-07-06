@@ -7,8 +7,13 @@ execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_halo
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_gas:1b}}}}] at @s run function lab:hazard/gas
 # phosphorus ignites in open air
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_pyro:1b}}}}] at @s run function lab:hazard/pyro
+# compound tubes in/on a centrifuge split automatically (fed by hand or by
+# the plugin's Centrifuge GUI dropping its contents into the drum)
+execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_is_compound:1b}}}}] at @s if entity @e[type=interaction,tag=lab.fuge,distance=..1.4] run function lab:fuge/spin
 # lingering halogen fume clouds
 execute as @e[type=marker,tag=lab.fumes] at @s run function lab:hazard/fumes_tick
+# lit burners crackle (lab.lit managed by the labra-plugin fuel GUI)
+execute as @e[type=interaction,tag=lab.burner,tag=lab.lit] at @s run function lab:burner/flame
 # radioactive / toxic samples on players
 execute as @a run function lab:hazard/player
 # "I shouldn't drink this" message cooldown

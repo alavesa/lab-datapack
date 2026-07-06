@@ -4,7 +4,7 @@ scoreboard players set #needheat lab.var 0
 scoreboard players set #total lab.var 0
 scoreboard players set #slots lab.var 0
 scoreboard players set #heat lab.var 0
-execute if block ~ ~-1 ~ minecraft:furnace[lit=true] run scoreboard players set #heat lab.var 1
+execute positioned ~ ~-1 ~ if entity @e[type=interaction,tag=lab.burner,tag=lab.lit,distance=..0.6] run scoreboard players set #heat lab.var 1
 scoreboard players set #c_H lab.var 0
 scoreboard players set #c_C lab.var 0
 scoreboard players set #c_N lab.var 0

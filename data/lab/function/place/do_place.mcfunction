@@ -1,29 +1,20 @@
 # Positioned at the centre of the target cell, executed as the placing op.
 # Machines exist ONLY through these op-level /function commands.
-# GUI machines are real container/furnace blocks (their vanilla GUI is the
-# interface); item_displays dress them up; markers drive the logic:
-#   1 centrifuge = dropper "Centrifuge" + drum display on top
-#   2 fridge     = barrel "Lab Fridge" + wrap-around cabinet display
-#   3 gas burner = furnace "Gas Burner" (lit furnace = heat below cauldrons)
-#   4 tube rack  = display + interaction only (furniture, no block)
-#   5 creator    = dispenser "Compound Creator"
+# Centrifuge/fridge/burner use the mob-spawner method (spawner collision block
+# + item_display model + interaction hitbox); their GUIs are opened by the
+# companion labra-plugin (v0.4+) when the interaction is right-clicked.
+#   1 centrifuge  2 fridge  3 burner (short hitbox - a cauldron fits on top)
+#   4 rack (furniture, no block)      5 compound creator (dispenser GUI)
 scoreboard players set #placed lab.var 1
 execute if entity @e[type=interaction,tag=lab.machine,distance=..0.7] run return run title @s actionbar {"text":"Something is already installed here.","color":"gray"}
 execute if entity @e[type=marker,tag=lab.creator,distance=..0.7] run return run title @s actionbar {"text":"Something is already installed here.","color":"gray"}
-execute if entity @e[type=marker,tag=lab.fuge_m,distance=..0.7] run return run title @s actionbar {"text":"Something is already installed here.","color":"gray"}
-execute if entity @e[type=marker,tag=lab.fridge_m,distance=..0.7] run return run title @s actionbar {"text":"Something is already installed here.","color":"gray"}
-execute if entity @e[type=marker,tag=lab.burner_m,distance=..0.7] run return run title @s actionbar {"text":"Something is already installed here.","color":"gray"}
-execute if score #type lab.var matches 1 run setblock ~ ~ ~ minecraft:dropper[facing=up]
-execute if score #type lab.var matches 1 run data merge block ~ ~ ~ {CustomName:"Centrifuge"}
-execute if score #type lab.var matches 1 run summon marker ~ ~ ~ {Tags:["lab.fuge_m"]}
-execute if score #type lab.var matches 1 run summon item_display ~ ~0.85 ~ {Tags:["lab.display","lab.newdisp"],brightness:{sky:15,block:10},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.55f,0.55f,0.55f]},item:{id:"minecraft:grindstone",count:1,components:{"minecraft:custom_model_data":{strings:["lab_centrifuge"]}}}}
-execute if score #type lab.var matches 2 run setblock ~ ~ ~ minecraft:barrel
-execute if score #type lab.var matches 2 run data merge block ~ ~ ~ {CustomName:"Lab Fridge"}
-execute if score #type lab.var matches 2 run summon marker ~ ~ ~ {Tags:["lab.fridge_m"]}
+execute unless score #type lab.var matches 4 unless score #type lab.var matches 5 run setblock ~ ~ ~ minecraft:spawner
+execute if score #type lab.var matches 1 run summon item_display ~ ~ ~ {Tags:["lab.display","lab.newdisp"],brightness:{sky:15,block:10},item:{id:"minecraft:grindstone",count:1,components:{"minecraft:custom_model_data":{strings:["lab_centrifuge"]}}}}
+execute if score #type lab.var matches 1 run summon interaction ~ ~-0.5 ~ {Tags:["lab.machine","lab.fuge"],width:1.05f,height:1.02f,response:1b}
 execute if score #type lab.var matches 2 run summon item_display ~ ~ ~ {Tags:["lab.display","lab.newdisp"],brightness:{sky:15,block:10},item:{id:"minecraft:iron_block",count:1,components:{"minecraft:custom_model_data":{strings:["lab_fridge"]}}}}
-execute if score #type lab.var matches 3 run setblock ~ ~ ~ minecraft:furnace
-execute if score #type lab.var matches 3 run data merge block ~ ~ ~ {CustomName:"Gas Burner"}
-execute if score #type lab.var matches 3 run summon marker ~ ~ ~ {Tags:["lab.burner_m"]}
+execute if score #type lab.var matches 2 run summon interaction ~ ~-0.5 ~ {Tags:["lab.machine","lab.fridge"],width:1.05f,height:1.02f,response:1b}
+execute if score #type lab.var matches 3 run summon item_display ~ ~ ~ {Tags:["lab.display","lab.newdisp"],brightness:{sky:15,block:10},item:{id:"minecraft:blast_furnace",count:1,components:{"minecraft:custom_model_data":{strings:["lab_burner"]}}}}
+execute if score #type lab.var matches 3 run summon interaction ~ ~-0.5 ~ {Tags:["lab.machine","lab.burner"],width:1.05f,height:0.6f,response:1b}
 execute if score #type lab.var matches 4 run summon item_display ~ ~ ~ {Tags:["lab.display","lab.newdisp"],brightness:{sky:15,block:10},item:{id:"minecraft:oak_planks",count:1,components:{"minecraft:custom_model_data":{strings:["lab_rack"]}}}}
 execute if score #type lab.var matches 4 run summon interaction ~ ~-0.5 ~ {Tags:["lab.machine","lab.rack","lab.new"],width:0.9f,height:0.55f,response:1b}
 execute if score #type lab.var matches 5 run setblock ~ ~ ~ minecraft:dispenser[facing=up]

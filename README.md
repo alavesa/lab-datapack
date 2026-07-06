@@ -126,9 +126,14 @@ items, so regular players cannot spawn them:
 ```
 
 Aim at the floor; the machine installs in the spot you're looking at and **faces the
-direction you're facing** (snapped to the nearest cardinal). Since v0.12 the working
-machines are **real container blocks with real GUIs**, dressed up by `item_display`
-models:
+direction you're facing** (snapped to the nearest cardinal). The centrifuge, fridge
+and burner are **mob-spawner-method custom blocks** (invisible spawner + 3D model +
+interaction hitbox) — and since v0.13 they are **openable**: right-clicking one opens
+a real GUI, served by [labra-plugin](https://github.com/alavesa/labra-plugin)
+**v0.4.0+** (a vanilla datapack cannot open inventories; the plugin listens for
+clicks on the tagged interaction entities). Without the plugin the machines still
+look right, and the centrifuge still works by dropping tubes on it — but the fridge
+and burner GUIs need the plugin.
 
 ### Compound Creator — reactions in a GUI
 
@@ -145,33 +150,35 @@ a spawner block for collision (the resource pack renders it invisible), an
 `item_display` for the 3D model, and an `interaction` entity so **right-clicking the
 machine actually does things**. Ship-with models are built from vanilla textures;
 swap in your own Blockbench models — see [CUSTOM-MODEL.md](CUSTOM-MODEL.md).
-**Removal:** `/function lab:remove` (op) retires machines within 5 blocks, always
-dropping contents. The rack is punch-proof for regular players (*"It's bolted down
-tight."*) — an op toggles `/function lab:admin` to dismantle it by punching. Honest
-tradeoff of the GUI approach: the container-based machines are real blocks, so they
-*can* be mined like any block — the marker cleans up and the contents drop, nothing
-is lost, but if players must not move lab equipment, protect the area.
+**Removal is op-only** (spawner machines are punch-proof — *"It's bolted down
+tight."*): an op toggles `/function lab:admin` and punches, or runs
+`/function lab:remove` for everything within 5 blocks. Contents always drop. The
+Compound Creator is the one real container block (its dispenser can be mined;
+contents drop, the marker cleans up).
 
 ### Centrifuge — GUI
 
-A dropper named **Centrifuge** with the drum model on top: open the grid, put a
-compound tube in → the tube vanishes from the grid and **its atoms burst out of the
-drum**. Full round trip: elements → compound → elements.
+Right-click the drum → a 9-slot **Centrifuge** feed opens. Put compound tubes in and
+close it: the tubes drop into the drum and **split into their atoms** within a
+second. (Dropping a tube straight onto the machine works too — no plugin needed for
+that path.) Full round trip: elements → compound → elements.
 
 ### Lab Fridge — GUI
 
-A barrel named **Lab Fridge**, fully wrapped in the tall cabinet model (the barrel is
-hidden inside; clicks pass through the display to the real GUI). **27 slots of cold
-storage** with frost coming off it — and since stored items aren't entities or
-inventory, **radiation never escapes a fridge**.
+Right-click the cabinet → **27 slots of persistent cold storage** (saved per machine
+by the plugin). Frost coming off it, and since stored items aren't entities or
+player inventory, **radiation never escapes a fridge**. Destroying the machine drops
+everything — the plugin watches the interaction entity die and empties the fridge on
+the floor.
 
 ### Gas Burner — GUI
 
-A furnace named **Gas Burner**. Fuel it like a furnace (coal + anything smeltable) to
-keep the flame going — **four recipes need heat** (H2SO4, glucose, rust, silica) and
-only react while a **burning** Gas Burner sits directly under the cauldron or
-Compound Creator. Heated products come out in **boiling flasks** instead of test
-tubes. When the fuel runs out, the heat is gone — bring coal.
+Right-click the burner → the **fuel gauge** opens. Click coal (60s each) or a coal
+block (540s) onto it and the flame lights — the plugin manages the burn time and the
+`lab.lit` tag that the datapack's heat checks read. **Four recipes need heat**
+(H2SO4, glucose, rust, silica) and only react while a burning Gas Burner sits
+directly under the cauldron or Compound Creator. Heated products come out in
+**boiling flasks**. When the fuel runs out, the flame goes out — bring coal.
 
 ### Test Tube Rack
 
