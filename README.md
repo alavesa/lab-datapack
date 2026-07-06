@@ -46,6 +46,12 @@ with the op commands below). Then:
 - Get them from the **Periodic Table book** (`/function lab:give/table`) — 118 clickable
   symbols with hover info — or directly: `/function lab:e {s:"Na"}`.
 - Elements don't stack (1 item = 1 atom). That's what makes recipe counting honest.
+- **Every element has its own custom-model hook**: each item carries a
+  `custom_model_data` string (`lab_el_h` … `lab_el_og`) and the resource pack maps
+  all 118 to per-element model files under
+  `assets/lab/models/item/element/`. By default they all inherit one tinted
+  "atom ball" model (category colors survive via the firework tint) — replace any
+  single file to give, say, uranium a bespoke look.
 
 ## Compounds — the complete list (18 recipes)
 
@@ -100,8 +106,9 @@ way (each hazard is written on the item's tooltip):
 - **Phosphorus**: smokes and **ignites within seconds in open air** — store it under
   water or in a cauldron, like a real lab does.
 - **F / Cl in water**: dissolve into a lingering poison cloud.
-- **Alkali metals** (Li, Na, K, Rb, Cs, Fr) in water: still TNT. Chemistry class was
-  right.
+- **Alkali metals** (Li, Na, K, Rb, Cs, Fr) in water: a violent flash that hurts
+  anyone standing close — but **no TNT and no block damage**, so the facility map
+  stays pristine (built for static RP maps).
 
 ### labra-plugin integration: the hazmat suit
 
@@ -116,45 +123,54 @@ still explosions; hazmat is not blast armor.
 
 ## Machines — custom 3D models with real hitboxes
 
-Machines exist **only through op-level commands** — there are no placeable machine
-items, so regular players cannot spawn them:
+Built for **SCP-style RP servers**: nothing here is obtainable in survival. Staff
+manage everything through the labra-plugin's `/lab` command (op / `lab.admin`,
+`lab.give` defaults to op):
 
 ```
-/function lab:place/creator        /function lab:place/centrifuge
-/function lab:place/fridge         /function lab:place/burner
-/function lab:place/rack
+/lab place creator|burner|centrifuge|fridge|rack
+/lab give kit|rod|pipette|manual|table [player]
+/lab give element <player> <symbol> [count]
+/lab removemachines          /lab admin
 ```
+
+(The plugin dispatches the datapack's functions as you — one engine, one interface.
+`/function lab:...` still exists underneath for pure-vanilla setups, but the `/lab`
+command is the intended way.)
 
 Aim at the floor; the machine installs in the spot you're looking at and **faces the
-direction you're facing** (snapped to the nearest cardinal). The centrifuge, fridge
-and burner are **mob-spawner-method custom blocks** (invisible spawner + 3D model +
-interaction hitbox) — and since v0.13 they are **openable**: right-clicking one opens
-a real GUI, served by [labra-plugin](https://github.com/alavesa/labra-plugin)
-**v0.4.0+** (a vanilla datapack cannot open inventories; the plugin listens for
-clicks on the tagged interaction entities). Without the plugin the machines still
-look right, and the centrifuge still works by dropping tubes on it — but the fridge
-and burner GUIs need the plugin.
+direction you're facing** (snapped to the nearest cardinal). **All machines are
+mob-spawner-method custom blocks** (invisible spawner + 3D model + interaction
+hitbox) and open real GUIs via [labra-plugin](https://github.com/alavesa/labra-plugin)
+**v0.5.0+** — a vanilla datapack cannot open inventories, so the plugin listens for
+clicks on the tagged interaction entities.
 
-### Compound Creator — reactions in a GUI
+### Compound Creator — the cold reaction bench
 
-The easy way to do chemistry. A dispenser named **Compound Creator**: right-click to
-open its **3×3 grid**, lay the atoms in — e.g. **2 × Hydrogen + 1 × Oxygen** — and the
-logic scans the grid every 0.4s. The instant the contents exactly match a formula,
-they **become the compound tube right there in the grid** (with the brewing fizz).
-A non-element item in the grid safely blocks all reactions; nothing is ever eaten by
-mistake. Hot recipes need a burning Gas Burner directly below. Glucose (24 atoms)
-doesn't fit in 9 slots — that one still wants the cauldron.
+Right-click → a **double-chest bench** (53 free slots) with a **Create Compound**
+button. Lay the atoms in — e.g. **2 × Hydrogen + 1 × Oxygen** — and press the button
+to commit: an exact formula match becomes the compound tube, popping out of the
+machine with the brewing fizz. No match (or any non-element in the mix) and
+**everything pops back out unharmed** — nothing is ever eaten by mistake. Closing
+the bench without pressing the button hands your items straight back.
 
-The cauldron + Stirring Rod workflow still works for purists (and for glucose).
+### Gas Burner — the hot reaction bench
+
+Same double-chest bench and Create Compound button, but with a flame under it: the
+Gas Burner makes **every** formula, including the four hot ones (H2SO4, glucose,
+rust, silica) that come out in **boiling flasks**. No fuel needed — it's plumbed
+into the facility gas line. The Compound Creator politely refuses hot mixes with
+*"This mixture needs the Gas Burner."*
+
+The cauldron + Stirring Rod workflow still works for cold recipes, RP flavor and
+plugin-less worlds.
 a spawner block for collision (the resource pack renders it invisible), an
 `item_display` for the 3D model, and an `interaction` entity so **right-clicking the
 machine actually does things**. Ship-with models are built from vanilla textures;
 swap in your own Blockbench models — see [CUSTOM-MODEL.md](CUSTOM-MODEL.md).
-**Removal is op-only** (spawner machines are punch-proof — *"It's bolted down
-tight."*): an op toggles `/function lab:admin` and punches, or runs
-`/function lab:remove` for everything within 5 blocks. Contents always drop. The
-Compound Creator is the one real container block (its dispenser can be mined;
-contents drop, the marker cleans up).
+**Removal is op-only** (all machines are punch-proof behind their hitboxes —
+*"It's bolted down tight."*): an op toggles `/lab admin` and punches, or runs
+`/lab removemachines` for everything within 5 blocks. Contents always drop.
 
 ### Centrifuge — GUI
 
@@ -170,15 +186,6 @@ by the plugin). Frost coming off it, and since stored items aren't entities or
 player inventory, **radiation never escapes a fridge**. Destroying the machine drops
 everything — the plugin watches the interaction entity die and empties the fridge on
 the floor.
-
-### Gas Burner — GUI
-
-Right-click the burner → the **fuel gauge** opens. Click coal (60s each) or a coal
-block (540s) onto it and the flame lights — the plugin manages the burn time and the
-`lab.lit` tag that the datapack's heat checks read. **Four recipes need heat**
-(H2SO4, glucose, rust, silica) and only react while a burning Gas Burner sits
-directly under the cauldron or Compound Creator. Heated products come out in
-**boiling flasks**. When the fuel runs out, the flame goes out — bring coal.
 
 ### Test Tube Rack
 

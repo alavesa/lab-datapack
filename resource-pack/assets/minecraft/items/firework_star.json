@@ -1,0 +1,1546 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "lab_el_h",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/h",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_he",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/he",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_li",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/li",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_be",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/be",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_b",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/b",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_c",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/c",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_n",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/n",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_o",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/o",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_f",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/f",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ne",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ne",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_na",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/na",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_mg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/mg",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_al",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/al",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_si",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/si",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_p",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/p",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_s",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/s",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cl",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cl",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ar",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ar",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_k",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/k",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ca",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ca",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_sc",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/sc",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ti",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ti",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_v",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/v",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cr",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cr",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_mn",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/mn",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_fe",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/fe",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_co",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/co",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ni",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ni",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cu",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cu",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_zn",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/zn",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ga",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ga",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ge",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ge",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_as",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/as",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_se",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/se",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_br",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/br",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_kr",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/kr",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_rb",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/rb",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_sr",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/sr",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_y",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/y",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_zr",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/zr",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_nb",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/nb",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_mo",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/mo",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_tc",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/tc",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ru",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ru",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_rh",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/rh",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_pd",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/pd",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ag",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ag",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cd",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cd",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_in",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/in",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_sn",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/sn",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_sb",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/sb",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_te",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/te",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_i",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/i",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_xe",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/xe",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cs",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cs",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ba",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ba",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_la",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/la",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ce",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ce",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_pr",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/pr",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_nd",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/nd",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_pm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/pm",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_sm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/sm",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_eu",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/eu",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_gd",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/gd",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_tb",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/tb",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_dy",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/dy",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ho",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ho",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_er",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/er",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_tm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/tm",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_yb",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/yb",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_lu",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/lu",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_hf",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/hf",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ta",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ta",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_w",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/w",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_re",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/re",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_os",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/os",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ir",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ir",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_pt",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/pt",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_au",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/au",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_hg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/hg",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_tl",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/tl",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_pb",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/pb",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_bi",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/bi",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_po",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/po",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_at",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/at",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_rn",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/rn",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_fr",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/fr",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ra",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ra",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ac",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ac",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_th",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/th",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_pa",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/pa",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_u",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/u",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_np",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/np",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_pu",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/pu",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_am",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/am",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cm",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_bk",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/bk",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cf",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cf",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_es",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/es",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_fm",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/fm",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_md",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/md",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_no",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/no",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_lr",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/lr",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_rf",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/rf",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_db",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/db",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_sg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/sg",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_bh",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/bh",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_hs",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/hs",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_mt",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/mt",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ds",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ds",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_rg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/rg",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_cn",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/cn",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_nh",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/nh",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_fl",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/fl",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_mc",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/mc",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_lv",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/lv",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_ts",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/ts",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      },
+      {
+        "when": "lab_el_og",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/element/og",
+          "tints": [
+            {
+              "type": "minecraft:firework",
+              "default": -1
+            }
+          ]
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/firework_star"
+    }
+  }
+}

@@ -12,8 +12,8 @@ execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_pyro
 execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_is_compound:1b}}}}] at @s if entity @e[type=interaction,tag=lab.fuge,distance=..1.4] run function lab:fuge/spin
 # lingering halogen fume clouds
 execute as @e[type=marker,tag=lab.fumes] at @s run function lab:hazard/fumes_tick
-# lit burners crackle (lab.lit managed by the labra-plugin fuel GUI)
-execute as @e[type=interaction,tag=lab.burner,tag=lab.lit] at @s run function lab:burner/flame
+# gas burners idle with a small standing flame
+execute as @e[type=interaction,tag=lab.burner] at @s run particle minecraft:small_flame ~ ~1.05 ~ 0.06 0.04 0.06 0.005 3
 # radioactive / toxic samples on players
 execute as @a run function lab:hazard/player
 # "I shouldn't drink this" message cooldown

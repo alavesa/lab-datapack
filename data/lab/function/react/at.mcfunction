@@ -2,10 +2,8 @@
 scoreboard players set #found lab.var 1
 scoreboard players set #done lab.var 0
 scoreboard players set #needheat lab.var 0
-# HOT recipes need a burning Gas Burner right below (lab.lit is managed by
-# the labra-plugin's fuel GUI)
+# The cauldron is a cold bench: HOT recipes only work in the Gas Burner
 scoreboard players set #heat lab.var 0
-execute positioned ~0.5 ~-1 ~0.5 if entity @e[type=interaction,tag=lab.burner,tag=lab.lit,distance=..0.4] run scoreboard players set #heat lab.var 1
 execute store result score #total lab.var if entity @e[type=item,dx=0,dy=0,dz=0,nbt={Item:{components:{"minecraft:custom_data":{lab_is_element:1b}}}}]
 execute if score #total lab.var matches 0 run return run title @s actionbar {"text":"The cauldron is empty.","color":"gray"}
 execute store result score #c_H lab.var if entity @e[type=item,dx=0,dy=0,dz=0,nbt={Item:{components:{"minecraft:custom_data":{lab_element:"H"}}}}]
