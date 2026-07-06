@@ -1,0 +1,19 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "lab_scp294",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:block/scp294"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:block/dropper"
+    }
+  }
+}

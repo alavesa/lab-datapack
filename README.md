@@ -16,10 +16,10 @@ No plugins, no resource pack — companion to
 
 1. Drop the `Lab` folder into `<world>/datapacks/` and `/reload`.
    Requires 1.21.5+ (pack_format 88). Commands need op / cheats.
-2. *(Recommended)* Add `LabResourcePack.zip` to `.minecraft/resourcepacks/` — it makes
-   the machine spawner-blocks invisible so the 3D machine models stand alone. Without
-   it, machines show as a spawner cage with the base item inside (fully functional,
-   just less pretty).
+2. *(Recommended)* Use `scp_and_chemistry.zip` as the server resource pack — one
+   combined pack with everything: machine models, invisible spawner cages, glassware,
+   all 118 element hooks and the SCP item hooks. Without it, machines show as a
+   spawner cage with the base item inside (fully functional, just less pretty).
 
 **Upgrading from v0.2 (tubes)?** Run the old `/function pneumatic:uninstall` *before*
 updating, so tube markers and scoreboards get cleaned up.
@@ -110,6 +110,31 @@ way (each hazard is written on the item's tooltip):
   anyone standing close — but **no TNT and no block damage**, so the facility map
   stays pristine (built for static RP maps).
 
+## SCP items
+
+Staff-issued anomalies that plug straight into the chemistry (`/lab give scp...`):
+
+- **SCP-009** (`scp009`) — red ice. Flash-freezes any water it touches (players in
+  the pool take freeze damage; the map never does). **Hazmat does not help.** In
+  hand it may only be handled with the **Pipette in the other hand**; transport
+  requires **liquid nitrogen** (an N2 tube in the inventory — nitrogen finally has a
+  job); safe storage is the fridge. Bring it near the Gas Burner's heat (or catch
+  fire) while carrying it and it **infects you: ~15 seconds to live**, curable only
+  by SCP-999.
+- **SCP-999** (`scp999`) — a dose of orange gel. Drinking it heals, clears **every**
+  negative effect and is the **only cure for an SCP-009 infection**. *"I feel
+  wonderful."*
+- **SCP-207** (`scp207`) — labeled **"Regular Cola"**, pixel-identical to the
+  harmless cola SCP-294 sells (both hide their effect lists). One of them gives a
+  small speed boost. The other grants tremendous speed while it slowly kills you.
+  There is no way to tell them apart. Staff knows which is which.
+- **SCP-148** (`scp148`) — telekill alloy ingot. Carried anywhere in the inventory,
+  it **blocks element radiation** completely (uranium in the same backpack goes
+  quiet).
+
+All SCP items and the Quarter have custom-model hooks (`scp009`, `scp148`,
+`lab_quarter`, …) like the elements — replace one model file to reskin them.
+
 ### labra-plugin integration: the hazmat suit
 
 Running [labra-plugin](https://github.com/alavesa/labra-plugin) on the server? Its
@@ -186,6 +211,13 @@ by the plugin). Frost coming off it, and since stored items aren't entities or
 player inventory, **radiation never escapes a fridge**. Destroying the machine drops
 everything — the plugin watches the interaction entity die and empties the fridge on
 the floor.
+
+### SCP-294 — the drink dispenser
+
+`/lab place scp294` — the classic coffee machine, spawner-model like the rest.
+Right-click for the menu: **every compound plus Coffee, Hot Chocolate, Regular Cola,
+Estus and god**. Each cup costs **2 Quarters** (`/lab give quarter <player> [count]`),
+taken from the buyer's inventory; the cup pops out of the machine.
 
 ### Test Tube Rack
 

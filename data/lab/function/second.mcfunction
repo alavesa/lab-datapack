@@ -14,7 +14,11 @@ execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{lab_is_c
 execute as @e[type=marker,tag=lab.fumes] at @s run function lab:hazard/fumes_tick
 # gas burners idle with a small standing flame
 execute as @e[type=interaction,tag=lab.burner] at @s run particle minecraft:small_flame ~ ~1.05 ~ 0.06 0.04 0.06 0.005 3
+# SCP-009 flash-freezes any water it touches
+execute as @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{scp009:1b}}}}] at @s align xyz if block ~ ~ ~ minecraft:water run function lab:hazard/scp009_water
 # radioactive / toxic samples on players
 execute as @a run function lab:hazard/player
+# SCP-009 infections run their course
+execute as @a[scores={lab.inf=1..}] run function lab:hazard/infection
 # "I shouldn't drink this" message cooldown
 scoreboard players remove @a[scores={lab.sip=1..}] lab.sip 1

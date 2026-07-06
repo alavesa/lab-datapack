@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "sip": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:potion",
+          "predicates": {
+            "minecraft:custom_data": { "scp999": true }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "lab:scp999/consumed"
+  }
+}
