@@ -10,6 +10,10 @@ scoreboard players set #was lab.var 0
 execute if score @s lab.cola matches 1.. run scoreboard players set #was lab.var 1
 execute if score #was lab.var matches 1 run scoreboard players remove @s lab.cola 60
 execute if score #was lab.var matches 1 if score @s lab.cola matches ..0 run scoreboard players set @s lab.cola 1
+scoreboard players set #was lab.var 0
+execute if score @s lab.z008 matches 1.. run scoreboard players set #was lab.var 1
+execute if score #was lab.var matches 1 run scoreboard players remove @s lab.z008 60
+execute if score #was lab.var matches 1 if score @s lab.z008 matches ..0 run scoreboard players set @s lab.z008 1
 effect clear @s minecraft:poison
 effect clear @s minecraft:wither
 effect clear @s minecraft:nausea

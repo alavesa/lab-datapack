@@ -22,5 +22,7 @@ execute as @a run function lab:hazard/player
 execute as @a[scores={lab.inf=1..}] run function lab:hazard/infection
 # SCP-207 runs its course
 execute as @a[scores={lab.cola=1..}] run function lab:hazard/cola
+# SCP-008 runs its course
+execute as @a[scores={lab.z008=1..}] run function lab:hazard/z008
 # "I shouldn't drink this" message cooldown
 scoreboard players remove @a[scores={lab.sip=1..}] lab.sip 1

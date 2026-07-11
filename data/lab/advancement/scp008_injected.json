@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "injected": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:ghast_tear",
+          "predicates": {
+            "minecraft:custom_data": { "scp008_syringe": true }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "lab:scp008/self_inject"
+  }
+}

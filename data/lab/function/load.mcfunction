@@ -12,6 +12,8 @@ scoreboard objectives add lab.age dummy
 scoreboard objectives add lab.inf dummy
 # SCP-207 progression timer per player
 scoreboard objectives add lab.cola dummy
+# SCP-008 infection timer per player
+scoreboard objectives add lab.z008 dummy
 # "I shouldn't drink this" message cooldown per player
 scoreboard objectives add lab.sip dummy
 

@@ -14,6 +14,7 @@ scoreboard objectives remove lab.age
 scoreboard objectives remove lab.sip
 scoreboard objectives remove lab.inf
 scoreboard objectives remove lab.cola
+scoreboard objectives remove lab.z008
 data remove storage lab:elements
 data remove storage lab:racks
 data remove storage lab:tmp
