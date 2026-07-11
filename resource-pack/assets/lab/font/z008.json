@@ -1,0 +1,5 @@
+{
+  "providers": [
+    { "type": "bitmap", "file": "lab:font/z008_pulse.png", "height": 100, "ascent": 47, "chars": ["\uE000"] }
+  ]
+}
