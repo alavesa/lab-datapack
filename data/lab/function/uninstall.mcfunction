@@ -15,7 +15,6 @@ scoreboard objectives remove lab.sip
 scoreboard objectives remove lab.inf
 scoreboard objectives remove lab.cola
 scoreboard objectives remove lab.z008
-data remove storage lab:elements
-data remove storage lab:racks
-data remove storage lab:tmp
+# command storages (lab:elements etc.) are left as-is: /data remove has no
+# whole-storage form, and a dormant storage file is harmless
 tellraw @a {"text":"[Lab] Uninstalled - machines retired, scoreboards and registries removed. Safe to disable the pack.","color":"yellow"}
