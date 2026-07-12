@@ -42,19 +42,29 @@ for src in SOURCES:
             if not (rel == "pack.mcmeta" or rel.startswith("assets" + os.sep)):
                 continue
             is_dispatch = rel.startswith(os.path.join("assets", "minecraft", "items")) and rel.endswith(".json")
+            is_atlas = rel.startswith(os.path.join("assets", "minecraft", "atlases")) and rel.endswith(".json")
             if rel in files or rel in merged:
-                if not is_dispatch:
+                if is_dispatch:
+                    current = merged.get(rel) or json.load(open(files.pop(rel)))
+                    extra = json.load(open(full))
+                    have = {c["when"] if isinstance(c["when"], str) else json.dumps(c["when"])
+                            for c in current["model"]["cases"]}
+                    added = [c for c in extra["model"]["cases"]
+                             if (c["when"] if isinstance(c["when"], str) else json.dumps(c["when"])) not in have]
+                    current["model"]["cases"].extend(added)
+                    merged[rel] = current
+                    print(f"  merged {rel}: +{len(added)} case(s) from {src}")
+                elif is_atlas:
+                    current = merged.get(rel) or json.load(open(files.pop(rel)))
+                    extra = json.load(open(full))
+                    have = [json.dumps(s, sort_keys=True) for s in current["sources"]]
+                    added = [s for s in extra["sources"]
+                             if json.dumps(s, sort_keys=True) not in have]
+                    current["sources"].extend(added)
+                    merged[rel] = current
+                    print(f"  merged {rel}: +{len(added)} atlas source(s) from {src}")
+                else:
                     print(f"  WARN: duplicate {rel} - keeping the first copy ({files[rel]})")
-                    continue
-                current = merged.get(rel) or json.load(open(files.pop(rel)))
-                extra = json.load(open(full))
-                have = {c["when"] if isinstance(c["when"], str) else json.dumps(c["when"])
-                        for c in current["model"]["cases"]}
-                added = [c for c in extra["model"]["cases"]
-                         if (c["when"] if isinstance(c["when"], str) else json.dumps(c["when"])) not in have]
-                current["model"]["cases"].extend(added)
-                merged[rel] = current
-                print(f"  merged {rel}: +{len(added)} case(s) from {src}")
             else:
                 files[rel] = full
 
