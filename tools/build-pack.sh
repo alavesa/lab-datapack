@@ -26,6 +26,7 @@ SOURCES = [  # first source wins for pack.mcmeta and duplicate non-dispatch file
     "/Users/piia/IdCards/resource-pack",
     "/Users/piia/Flashlights Resource Pack",
     "/Users/piia/Guns/resource-pack",
+    "/Users/piia/Terminal/resource-pack",
 ]
 out = os.environ["OUT"]
 
