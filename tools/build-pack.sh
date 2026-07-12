@@ -1,23 +1,73 @@
 #!/usr/bin/env bash
-# Builds the combined scp_and_chemistry resource pack from all five repos and
-# publishes it to the rolling 'pack-latest' release on lab-datapack, so the
-# server can point at ONE stable URL forever:
+# Builds the ONE combined resource pack for the whole server - SCP + chemistry
+# + flashlights + guns - and publishes it to the rolling 'pack-latest' release
+# on lab-datapack, so server.properties can point at one URL forever:
 #
 #   resource-pack=https://github.com/alavesa/lab-datapack/releases/download/pack-latest/scp_and_chemistry.zip
 #   resource-pack-sha1=<printed by this script - update it on EVERY pack change>
 #
-# A stale sha1 makes every client silently reject the download and ALL custom
-# models vanish at once - that is what this script exists to prevent.
+# Sources that define the same assets/minecraft/items/<item>.json (e.g. the
+# flashlight and the lab pipette both live on carrot_on_a_stick) get their
+# select CASES MERGED instead of the last copy clobbering the first - packs
+# overwriting each other's dispatch files is exactly how "all the 3D models
+# broke" once, and this script exists so it cannot happen again.
 set -euo pipefail
 
-HOME_DIR=/Users/piia
-OUT=${1:-$HOME_DIR/scp_and_chemistry.zip}
+OUT=${1:-/Users/piia/scp_and_chemistry.zip}
 
-rm -f "$OUT"
-(cd "$HOME_DIR/Lab/resource-pack" && zip -rq "$OUT" pack.mcmeta assets -x "*.DS_Store")
-for repo in ScpMobs Cars Scp914 IdCards; do
-  (cd "$HOME_DIR/$repo/resource-pack" && zip -rq "$OUT" assets -x "*.DS_Store")
-done
+OUT="$OUT" python3 <<'EOF'
+import json, os, shutil, sys, zipfile
+
+SOURCES = [  # first source wins for pack.mcmeta and duplicate non-dispatch files
+    "/Users/piia/Lab/resource-pack",
+    "/Users/piia/ScpMobs/resource-pack",
+    "/Users/piia/Cars/resource-pack",
+    "/Users/piia/Scp914/resource-pack",
+    "/Users/piia/IdCards/resource-pack",
+    "/Users/piia/Flashlights Resource Pack",
+    "/Users/piia/Guns/resource-pack",
+]
+out = os.environ["OUT"]
+
+files = {}   # relpath -> abspath (first source wins)
+merged = {}  # relpath -> merged dispatch dict
+for src in SOURCES:
+    for base, _, names in os.walk(src):
+        for name in names:
+            if name == ".DS_Store" or name == "pack.mcmeta" and src != SOURCES[0]:
+                continue
+            full = os.path.join(base, name)
+            rel = os.path.relpath(full, src)
+            if not (rel == "pack.mcmeta" or rel.startswith("assets" + os.sep)):
+                continue
+            is_dispatch = rel.startswith(os.path.join("assets", "minecraft", "items")) and rel.endswith(".json")
+            if rel in files or rel in merged:
+                if not is_dispatch:
+                    print(f"  WARN: duplicate {rel} - keeping the first copy ({files[rel]})")
+                    continue
+                current = merged.get(rel) or json.load(open(files.pop(rel)))
+                extra = json.load(open(full))
+                have = {c["when"] if isinstance(c["when"], str) else json.dumps(c["when"])
+                        for c in current["model"]["cases"]}
+                added = [c for c in extra["model"]["cases"]
+                         if (c["when"] if isinstance(c["when"], str) else json.dumps(c["when"])) not in have]
+                current["model"]["cases"].extend(added)
+                merged[rel] = current
+                print(f"  merged {rel}: +{len(added)} case(s) from {src}")
+            else:
+                files[rel] = full
+
+if "pack.mcmeta" not in files:
+    sys.exit("no pack.mcmeta found in the first source")
+if os.path.exists(out):
+    os.remove(out)
+with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+    for rel in sorted(files):
+        z.write(files[rel], rel.replace(os.sep, "/"))
+    for rel in sorted(merged):
+        z.writestr(rel.replace(os.sep, "/"), json.dumps(merged[rel], indent=2))
+print(f"{len(files) + len(merged)} files -> {out}")
+EOF
 
 SHA1=$(shasum -a 1 "$OUT" | cut -d' ' -f1)
 echo "built: $OUT"
@@ -27,7 +77,7 @@ gh release view pack-latest -R alavesa/lab-datapack >/dev/null 2>&1 \
   || gh release create pack-latest -R alavesa/lab-datapack \
        --title "scp_and_chemistry - rolling latest" --notes "(placeholder)"
 gh release upload pack-latest "$OUT" -R alavesa/lab-datapack --clobber
-gh release edit pack-latest -R alavesa/lab-datapack --notes "Always the newest combined resource pack (Lab + ScpMobs + Cars + Scp914 + IdCards). Updated in place - the download URL below never changes.
+gh release edit pack-latest -R alavesa/lab-datapack --notes "The ONE resource pack for the whole server: Lab chemistry + SCP items, ScpMobs, Cars, Scp914, IdCards, Flashlights and Guns - colliding item dispatches merged. Disable/delete all the individual packs; this replaces every one of them. Updated in place - the URL below never changes.
 
 server.properties:
 \`\`\`
