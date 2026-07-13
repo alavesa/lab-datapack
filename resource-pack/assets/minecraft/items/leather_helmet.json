@@ -1,0 +1,32 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "cases": [
+      {
+        "when": "scp268",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/scp268"
+        }
+      },
+      {
+        "when": "scp1499",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/scp1499"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/leather_helmet",
+      "tints": [
+        {
+          "type": "minecraft:dye",
+          "default": -6265536
+        }
+      ]
+    }
+  }
+}

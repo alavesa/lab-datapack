@@ -6,5 +6,8 @@ execute if entity @s[tag=lab.rack] run function lab:rack/pop_all with storage la
 kill @e[type=item_display,tag=lab.rackview,distance=..1.2]
 kill @e[type=item_display,tag=lab.display,distance=..0.8]
 execute if block ~ ~ ~ minecraft:spawner run setblock ~ ~ ~ air
+# SCP-038 grows through a barrier column instead of a spawner
+execute if entity @s[tag=lab.scp038] if block ~ ~ ~ minecraft:barrier run setblock ~ ~ ~ air
+execute if entity @s[tag=lab.scp038] if block ~ ~1 ~ minecraft:barrier run setblock ~ ~1 ~ air
 playsound minecraft:block.anvil.destroy block @a[distance=..12] ~ ~0.5 ~ 0.4 1.5
 kill @s
