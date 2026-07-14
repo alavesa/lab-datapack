@@ -9,6 +9,13 @@
           "type": "minecraft:model",
           "model": "lab:item/scp427"
         }
+      },
+      {
+        "when": "scp427_on",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/scp427_on"
+        }
       }
     ],
     "fallback": {

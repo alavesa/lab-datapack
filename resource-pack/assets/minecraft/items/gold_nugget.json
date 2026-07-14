@@ -9,6 +9,13 @@
           "type": "minecraft:model",
           "model": "lab:item/scp714"
         }
+      },
+      {
+        "when": "scp714_on",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/scp714_on"
+        }
       }
     ],
     "fallback": {
