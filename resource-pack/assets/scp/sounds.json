@@ -1,0 +1,11 @@
+{
+  "gun.pistol":   { "category": "master", "sounds": [ { "name": "scp:gun/pistol", "stream": false } ] },
+  "gun.rifle":    { "category": "master", "sounds": [ { "name": "scp:gun/rifle", "stream": false } ] },
+  "gun.sniper":   { "category": "master", "sounds": [ { "name": "scp:gun/sniper", "stream": false } ] },
+  "keycard.grant": { "category": "master", "sounds": [ { "name": "scp:keycard/grant", "stream": false } ] },
+  "keycard.deny":  { "category": "master", "sounds": [ { "name": "scp:keycard/deny", "stream": false } ] },
+  "keycard.swipe": { "category": "master", "sounds": [ { "name": "scp:keycard/swipe", "stream": false } ] },
+  "car.engine":   { "category": "master", "sounds": [ { "name": "scp:car/engine", "stream": true } ] },
+  "camera.connect": { "category": "master", "sounds": [ { "name": "scp:camera/connect", "stream": false } ] },
+  "camera.ambient": { "category": "master", "sounds": [ { "name": "scp:camera/ambient", "stream": false } ] }
+}
