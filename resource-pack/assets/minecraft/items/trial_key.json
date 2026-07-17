@@ -13,7 +13,7 @@
     ],
     "fallback": {
       "type": "minecraft:model",
-      "model": "minecraft:item/tripwire_hook"
+      "model": "minecraft:item/trial_key"
     }
   }
 }
