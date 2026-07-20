@@ -9,6 +9,20 @@
           "type": "minecraft:model",
           "model": "lab:item/lab_medkit"
         }
+      },
+      {
+        "when": "lab_extinguisher",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_extinguisher"
+        }
+      },
+      {
+        "when": "lab_extinguisher_mount",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_extinguisher_mount"
+        }
       }
     ],
     "fallback": {
