@@ -13,23 +13,24 @@
 # broke" once, and this script exists so it cannot happen again.
 set -euo pipefail
 
-OUT=${1:-/Users/piia/scp_and_chemistry.zip}
+OUT=${1:-$HOME/scp_and_chemistry.zip}
 
 OUT="$OUT" python3 <<'EOF'
 import json, os, shutil, sys, zipfile
 
+home = os.path.expanduser("~")  # all repos live side by side in the home dir
 SOURCES = [  # first source wins for pack.mcmeta and duplicate non-dispatch files
-    "/Users/piia/Lab/resource-pack",
-    "/Users/piia/ScpMobs/resource-pack",
-    "/Users/piia/Cars/resource-pack",
-    "/Users/piia/Scp914/resource-pack",
-    "/Users/piia/IdCards/resource-pack",
-    "/Users/piia/Flashlights Resource Pack",
-    "/Users/piia/Guns/resource-pack",
-    "/Users/piia/Terminal/resource-pack",
-    "/Users/piia/Keycards/resource-pack",
-    "/Users/piia/Doors/resource-pack",
-    "/Users/piia/Facility/resource-pack",
+    home + "/Lab/resource-pack",
+    home + "/ScpMobs/resource-pack",
+    home + "/Cars/resource-pack",
+    home + "/Scp914/resource-pack",
+    home + "/IdCards/resource-pack",
+    home + "/Flashlights Resource Pack",
+    home + "/Guns/resource-pack",
+    home + "/Terminal/resource-pack",
+    home + "/Keycards/resource-pack",
+    home + "/Doors/resource-pack",
+    home + "/Facility/resource-pack",
 ]
 out = os.environ["OUT"]
 
