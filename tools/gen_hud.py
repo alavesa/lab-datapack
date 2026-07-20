@@ -53,7 +53,7 @@ for n in range(11):
 # they sit down at the XP-bar level; the ActionBars hub pushes the whole pair
 # far to the left. Blink is cyan (red when nearly spent); sprint reuses the
 # green battery ramp (E200..E20A) since low-stamina-red already fits.
-METER_ASCENT = -12   # lower = down toward the XP-bar row (more negative = lower)
+METER_ASCENT = -22   # lower = down toward the XP-bar row (more negative = lower)
 
 def bar(n, lit_hi, lit_lo):
     px = [[(0, 0, 0, 0)] * W for _ in range(H)]
