@@ -121,6 +121,222 @@
       "chars": [
         ""
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_0.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_1.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_2.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_3.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_4.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_5.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_6.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_7.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_8.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_9.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_blink_10.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_0.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_1.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_2.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_3.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_4.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_5.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_6.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_7.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_8.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_9.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_stam_10.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_eye.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/hud_boot.png",
+      "ascent": -7,
+      "height": 8,
+      "chars": [
+        ""
+      ]
     }
   ]
 }
