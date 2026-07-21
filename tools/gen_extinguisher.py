@@ -176,24 +176,29 @@ print(pumpkin, "-> +gasmask case")
 # goggle holes, the rest a dark rubber vignette. (Affects any worn carved pumpkin,
 # but on this server that's the gas mask.) 256x256.
 def pumpkinblur():
-    import math
+    # A gas-mask view: two big clear goggle holes with a soft rubber gasket ring,
+    # and a dark (neutral, not green) vignette everywhere else so you can still see
+    # the world but it's masked. 256x256.
     N = 256
     px = [[(0, 0, 0, 0)] * N for _ in range(N)]
-    eyes = [(96, 118, 60), (160, 118, 60)]   # (cx, cy, r)
+    eyes = [(94, 116, 72), (162, 116, 72)]   # (cx, cy, r) - big goggles
+    GASKET = 16                               # soft ring width around each lens
     for y in range(N):
         for x in range(N):
-            clear = False
+            dmin = 1e9
             for cx, cy, r in eyes:
-                if (x - cx) ** 2 + (y - cy) ** 2 <= r * r:
-                    clear = True
-                    break
-            if clear:
-                px[y][x] = (0, 0, 0, 0)
+                d = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5 - r
+                if d < dmin:
+                    dmin = d
+            if dmin <= 0:
+                px[y][x] = (0, 0, 0, 0)                      # clear glass
+            elif dmin <= GASKET:
+                a = int(230 * (dmin / GASKET))               # fade into the rubber
+                px[y][x] = (14, 14, 16, a)
             else:
-                # darker toward the screen edges = mask periphery
                 edge = max(abs(x - N / 2), abs(y - N / 2)) / (N / 2)
-                a = int(150 + 90 * edge)
-                px[y][x] = (12, 16, 12, min(245, a))
+                a = int(150 + 80 * edge)                     # neutral dark, lighter than before
+                px[y][x] = (12, 12, 14, min(235, a))
     return px
 
 misc = os.path.join(os.path.dirname(__file__), "..", "resource-pack", "assets", "minecraft", "textures", "misc")
