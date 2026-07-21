@@ -236,7 +236,7 @@ def mask_overlay(tint, frame, holes_r=74):
                 px[y][x] = (frame[0], frame[1], frame[2], int(235 * (dmin / GASKET)))
             else:
                 edge = max(abs(x - N / 2), abs(y - N / 2)) / (N / 2)
-                px[y][x] = (tint[0], tint[1], tint[2], min(235, int(150 + 80 * edge)))
+                px[y][x] = (tint[0], tint[1], tint[2], min(255, int(215 + 40 * edge)))
     return px
 
 GLYPHS = {
@@ -271,8 +271,8 @@ def nvg_overlay(tint):
     for y in range(N):
         for x in range(N):
             edge = max(abs(x - N / 2), abs(y - N / 2)) / (N / 2)
-            a = int(70 + 90 * edge)                       # light tint centre, darker rim
-            px[y][x] = (tint[0], tint[1], tint[2], min(200, a))
+            a = int(110 + 110 * edge)                     # clearly-visible tint, darker rim
+            px[y][x] = (tint[0], tint[1], tint[2], min(230, a))
     return px
 
 NVG = {"nvg_green": (chr(0xE000), (30, 150, 40)),
