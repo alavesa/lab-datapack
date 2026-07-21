@@ -3,8 +3,8 @@
     {
       "type": "bitmap",
       "file": "lab:font/gasmask_normal.png",
-      "ascent": 640,
-      "height": 1024,
+      "ascent": 160,
+      "height": 256,
       "chars": [
         "\ue000"
       ]
@@ -12,8 +12,8 @@
     {
       "type": "bitmap",
       "file": "lab:font/gasmask_super.png",
-      "ascent": 640,
-      "height": 1024,
+      "ascent": 160,
+      "height": 256,
       "chars": [
         "\ue001"
       ]
@@ -21,8 +21,8 @@
     {
       "type": "bitmap",
       "file": "lab:font/gasmask_heavy.png",
-      "ascent": 640,
-      "height": 1024,
+      "ascent": 160,
+      "height": 256,
       "chars": [
         "\ue002"
       ]

@@ -249,7 +249,7 @@ png(os.path.join(TEX, "gasmask_super.png"),  mask_overlay((10, 16, 22), (40, 120
 png(os.path.join(TEX, "gasmask_heavy.png"),  mask_overlay((8, 8, 9),  (60, 55, 45), holes_r=62))  # heavier frame
 
 gm_font = {"providers": [
-    {"type": "bitmap", "file": "lab:font/" + name + ".png", "ascent": 640, "height": 1024,
+    {"type": "bitmap", "file": "lab:font/" + name + ".png", "ascent": 160, "height": 256,
      "chars": [ch]} for name, ch in GLYPHS.items()]}
 os.makedirs(os.path.join(ROOT, "font"), exist_ok=True)
 # textures for the font live under lab:font/, copy the item pngs there too
@@ -282,7 +282,7 @@ nvg_providers = []
 for name, (ch, tint) in NVG.items():
     png(os.path.join(FONTDIR, name + ".png"), nvg_overlay(tint))
     nvg_providers.append({"type": "bitmap", "file": "lab:font/" + name + ".png",
-                          "ascent": 640, "height": 1024, "chars": [ch]})
+                          "ascent": 160, "height": 256, "chars": [ch]})
 with open(os.path.join(ROOT, "font", "nvg.json"), "w") as f:
     json.dump({"providers": nvg_providers}, f, indent=2)
 print("lab:nvg font + 3 goggle overlays written")
