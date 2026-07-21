@@ -2,22 +2,7 @@
   "model": {
     "type": "minecraft:select",
     "property": "minecraft:custom_model_data",
-    "cases": [
-      {
-        "when": "lab_nvg",
-        "model": {
-          "type": "minecraft:model",
-          "model": "lab:item/lab_nvg"
-        }
-      },
-      {
-        "when": "lab_gasmask",
-        "model": {
-          "type": "minecraft:model",
-          "model": "lab:item/lab_gasmask"
-        }
-      }
-    ],
+    "cases": [],
     "fallback": {
       "type": "minecraft:model",
       "model": "minecraft:block/carved_pumpkin"

@@ -159,18 +159,52 @@ png(os.path.join(TEX, "lab_gasmask.png"), gas_mask())
 with open(os.path.join(MODELS, "lab_gasmask.json"), "w") as f:
     json.dump({"parent": "minecraft:item/generated", "textures": {"layer0": "lab:item/lab_gasmask"}}, f, indent=2)
 
+# NVG goggle items (green/red/blue), so the masks and goggles are leather-helmet
+# items with custom models - carved_pumpkin is freed up entirely.
+def nvg_item(glass, glass_d):
+    px = blank()
+    STRAP = (40, 40, 44, 255)
+    BODY = (34, 38, 34, 255)
+    BODY_D = (22, 26, 22, 255)
+    rect(px, 2, 6, 13, 6, STRAP)              # head strap
+    rect(px, 3, 7, 12, 11, BODY)              # goggle body
+    rect(px, 3, 11, 12, 11, BODY_D)
+    rect(px, 4, 8, 6, 10, glass); px[8][4] = glass_d
+    rect(px, 9, 8, 11, 10, glass); px[8][11] = glass_d
+    return px
+
+png(os.path.join(TEX, "lab_nvg.png"),      nvg_item((90, 220, 110, 255), (50, 150, 70, 255)))
+png(os.path.join(TEX, "lab_nvg_red.png"),  nvg_item((235, 90, 80, 255), (150, 50, 45, 255)))
+png(os.path.join(TEX, "lab_nvg_blue.png"), nvg_item((90, 150, 235, 255), (50, 90, 160, 255)))
+for name in ("lab_nvg", "lab_nvg_red", "lab_nvg_blue"):
+    with open(os.path.join(MODELS, name + ".json"), "w") as f:
+        json.dump({"parent": "minecraft:item/generated", "textures": {"layer0": "lab:item/" + name}}, f, indent=2)
+
+# All headgear (gas masks + goggles) dispatches off LEATHER_HELMET now.
+leather = os.path.join(ITEMS, "leather_helmet.json")
+if os.path.exists(leather):
+    ldata = json.load(open(leather))
+else:
+    ldata = {"model": {"type": "minecraft:select", "property": "minecraft:custom_model_data",
+                       "cases": [], "fallback": {"type": "minecraft:model", "model": "minecraft:item/leather_helmet"}}}
+lcases = ldata["model"]["cases"]
+lhave = {c.get("when") for c in lcases}
+for name in ("lab_gasmask", "lab_nvg", "lab_nvg_red", "lab_nvg_blue"):
+    if name not in lhave:
+        lcases.append({"when": name, "model": {"type": "minecraft:model", "model": "lab:item/" + name}})
+with open(leather, "w") as f:
+    json.dump(ldata, f, indent=2)
+print(leather, "-> +gasmask/nvg cases")
+
+# free carved_pumpkin: drop any lab_* cases we used to put there
 pumpkin = os.path.join(ITEMS, "carved_pumpkin.json")
 if os.path.exists(pumpkin):
     pdata = json.load(open(pumpkin))
-else:
-    pdata = {"model": {"type": "minecraft:select", "property": "minecraft:custom_model_data",
-                       "cases": [], "fallback": {"type": "minecraft:model", "model": "minecraft:item/carved_pumpkin"}}}
-pcases = pdata["model"]["cases"]
-if "lab_gasmask" not in {c.get("when") for c in pcases}:
-    pcases.append({"when": "lab_gasmask", "model": {"type": "minecraft:model", "model": "lab:item/lab_gasmask"}})
-with open(pumpkin, "w") as f:
-    json.dump(pdata, f, indent=2)
-print(pumpkin, "-> +gasmask case")
+    pdata["model"]["cases"] = [c for c in pdata["model"].get("cases", [])
+                               if not str(c.get("when", "")).startswith("lab_")]
+    with open(pumpkin, "w") as f:
+        json.dump(pdata, f, indent=2)
+    print(pumpkin, "-> lab_ cases removed")
 
 # The vanilla carved-pumpkin overlay is killed (fully transparent) so it doesn't
 # double up with our per-tier font overlay below.
@@ -227,5 +261,30 @@ for name in GLYPHS:
 with open(os.path.join(ROOT, "font", "gasmask.json"), "w") as f:
     json.dump(gm_font, f, indent=2)
 print("lab:gasmask font + 3 tier overlays written")
+
+# NVG overlays: a full-screen colour TINT (the whole view is washed, classic
+# night-vision look) with a soft vignette - green/red/blue per goggle type.
+# lab:nvg font glyphs E000 green, E001 red, E002 blue (matches FireManager).
+def nvg_overlay(tint):
+    N = 256
+    px = [[(0, 0, 0, 0)] * N for _ in range(N)]
+    for y in range(N):
+        for x in range(N):
+            edge = max(abs(x - N / 2), abs(y - N / 2)) / (N / 2)
+            a = int(70 + 90 * edge)                       # light tint centre, darker rim
+            px[y][x] = (tint[0], tint[1], tint[2], min(200, a))
+    return px
+
+NVG = {"nvg_green": (chr(0xE000), (30, 150, 40)),
+       "nvg_red":   (chr(0xE001), (170, 30, 25)),
+       "nvg_blue":  (chr(0xE002), (30, 80, 180))}
+nvg_providers = []
+for name, (ch, tint) in NVG.items():
+    png(os.path.join(FONTDIR, name + ".png"), nvg_overlay(tint))
+    nvg_providers.append({"type": "bitmap", "file": "lab:font/" + name + ".png",
+                          "ascent": 640, "height": 1024, "chars": [ch]})
+with open(os.path.join(ROOT, "font", "nvg.json"), "w") as f:
+    json.dump({"providers": nvg_providers}, f, indent=2)
+print("lab:nvg font + 3 goggle overlays written")
 
 

@@ -16,6 +16,34 @@
           "type": "minecraft:model",
           "model": "lab:item/scp1499"
         }
+      },
+      {
+        "when": "lab_gasmask",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_gasmask"
+        }
+      },
+      {
+        "when": "lab_nvg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_nvg"
+        }
+      },
+      {
+        "when": "lab_nvg_red",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_nvg_red"
+        }
+      },
+      {
+        "when": "lab_nvg_blue",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_nvg_blue"
+        }
       }
     ],
     "fallback": {

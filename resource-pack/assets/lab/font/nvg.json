@@ -1,0 +1,31 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "lab:font/nvg_green.png",
+      "ascent": 640,
+      "height": 1024,
+      "chars": [
+        "\ue000"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/nvg_red.png",
+      "ascent": 640,
+      "height": 1024,
+      "chars": [
+        "\ue001"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "lab:font/nvg_blue.png",
+      "ascent": 640,
+      "height": 1024,
+      "chars": [
+        "\ue002"
+      ]
+    }
+  ]
+}
