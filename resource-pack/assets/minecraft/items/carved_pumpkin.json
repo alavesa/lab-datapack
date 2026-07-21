@@ -9,6 +9,13 @@
           "type": "minecraft:model",
           "model": "lab:item/lab_nvg"
         }
+      },
+      {
+        "when": "lab_gasmask",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_gasmask"
+        }
       }
     ],
     "fallback": {

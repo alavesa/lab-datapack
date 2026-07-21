@@ -23,6 +23,13 @@
           "type": "minecraft:model",
           "model": "lab:item/lab_extinguisher_mount"
         }
+      },
+      {
+        "when": "lab_sprinkler_button",
+        "model": {
+          "type": "minecraft:model",
+          "model": "lab:item/lab_sprinkler_button"
+        }
       }
     ],
     "fallback": {

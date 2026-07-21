@@ -87,10 +87,28 @@ def mount():
     return px
 
 
+def sprinkler_button():
+    # a red industrial "fire alarm" push button on a housing plate
+    px = blank()
+    HOUSE = (200, 40, 30, 255)     # red alarm housing
+    HOUSE_D = (140, 22, 18, 255)
+    rect(px, 3, 3, 12, 12, HOUSE_D)
+    rect(px, 4, 4, 11, 11, HOUSE)
+    # the pressable button in the middle
+    rect(px, 6, 6, 9, 9, (240, 230, 230, 255))
+    rect(px, 6, 6, 9, 6, (255, 255, 255, 255))   # top sheen
+    rect(px, 6, 9, 9, 9, (180, 170, 170, 255))   # bottom shade
+    # bolt corners
+    px[4][4] = BLACK; px[4][11] = BLACK
+    px[11][4] = BLACK; px[11][11] = BLACK
+    return px
+
+
 png(os.path.join(TEX, "lab_extinguisher.png"), extinguisher())
 png(os.path.join(TEX, "lab_extinguisher_mount.png"), mount())
+png(os.path.join(TEX, "lab_sprinkler_button.png"), sprinkler_button())
 
-for name in ("lab_extinguisher", "lab_extinguisher_mount"):
+for name in ("lab_extinguisher", "lab_extinguisher_mount", "lab_sprinkler_button"):
     os.makedirs(MODELS, exist_ok=True)
     with open(os.path.join(MODELS, name + ".json"), "w") as f:
         json.dump({"parent": "minecraft:item/generated",
@@ -106,10 +124,78 @@ else:
                       "cases": [], "fallback": {"type": "minecraft:model", "model": "minecraft:item/brick"}}}
 cases = data["model"]["cases"]
 have = {c.get("when") for c in cases}
-for name in ("lab_extinguisher", "lab_extinguisher_mount"):
+for name in ("lab_extinguisher", "lab_extinguisher_mount", "lab_sprinkler_button"):
     if name not in have:
         cases.append({"when": name, "model": {"type": "minecraft:model", "model": "lab:item/" + name}})
 os.makedirs(ITEMS, exist_ok=True)
 with open(brick, "w") as f:
     json.dump(data, f, indent=2)
 print(brick, "-> +extinguisher cases")
+
+# --------------------------------------------------------------- gas mask
+# All three gas-mask tiers share ONE model (lab_gasmask) on carved_pumpkin, and
+# the worn first-person view is the retextured pumpkin overlay (misc/pumpkinblur).
+
+def gas_mask():
+    px = blank()
+    MASK = (54, 62, 50, 255)      # olive-drab rubber
+    MASK_D = (34, 40, 32, 255)
+    GLASS = (150, 200, 210, 255)  # goggle glass
+    GLASS_D = (90, 130, 140, 255)
+    FILT = (40, 44, 40, 255)      # filter canister
+    rect(px, 4, 3, 11, 13, MASK)
+    rect(px, 4, 3, 4, 13, MASK_D)
+    rect(px, 3, 5, 3, 11, MASK_D)   # left cheek
+    rect(px, 12, 5, 12, 11, MASK)   # right cheek
+    # two round goggles
+    rect(px, 5, 5, 7, 7, GLASS); px[5][5] = GLASS_D; px[7][7] = GLASS_D
+    rect(px, 8, 5, 10, 7, GLASS); px[5][10] = GLASS_D; px[7][8] = GLASS_D
+    # filter canister at the chin
+    rect(px, 6, 11, 9, 14, FILT)
+    rect(px, 7, 14, 8, 15, MASK_D)
+    return px
+
+png(os.path.join(TEX, "lab_gasmask.png"), gas_mask())
+with open(os.path.join(MODELS, "lab_gasmask.json"), "w") as f:
+    json.dump({"parent": "minecraft:item/generated", "textures": {"layer0": "lab:item/lab_gasmask"}}, f, indent=2)
+
+pumpkin = os.path.join(ITEMS, "carved_pumpkin.json")
+if os.path.exists(pumpkin):
+    pdata = json.load(open(pumpkin))
+else:
+    pdata = {"model": {"type": "minecraft:select", "property": "minecraft:custom_model_data",
+                       "cases": [], "fallback": {"type": "minecraft:model", "model": "minecraft:item/carved_pumpkin"}}}
+pcases = pdata["model"]["cases"]
+if "lab_gasmask" not in {c.get("when") for c in pcases}:
+    pcases.append({"when": "lab_gasmask", "model": {"type": "minecraft:model", "model": "lab:item/lab_gasmask"}})
+with open(pumpkin, "w") as f:
+    json.dump(pdata, f, indent=2)
+print(pumpkin, "-> +gasmask case")
+
+# The worn overlay: retexture misc/pumpkinblur into a gas-mask view - two clear
+# goggle holes, the rest a dark rubber vignette. (Affects any worn carved pumpkin,
+# but on this server that's the gas mask.) 256x256.
+def pumpkinblur():
+    import math
+    N = 256
+    px = [[(0, 0, 0, 0)] * N for _ in range(N)]
+    eyes = [(96, 118, 60), (160, 118, 60)]   # (cx, cy, r)
+    for y in range(N):
+        for x in range(N):
+            clear = False
+            for cx, cy, r in eyes:
+                if (x - cx) ** 2 + (y - cy) ** 2 <= r * r:
+                    clear = True
+                    break
+            if clear:
+                px[y][x] = (0, 0, 0, 0)
+            else:
+                # darker toward the screen edges = mask periphery
+                edge = max(abs(x - N / 2), abs(y - N / 2)) / (N / 2)
+                a = int(150 + 90 * edge)
+                px[y][x] = (12, 16, 12, min(245, a))
+    return px
+
+misc = os.path.join(os.path.dirname(__file__), "..", "resource-pack", "assets", "minecraft", "textures", "misc")
+png(os.path.join(misc, "pumpkinblur.png"), pumpkinblur())
+print("misc/pumpkinblur.png -> gas-mask first-person overlay")
