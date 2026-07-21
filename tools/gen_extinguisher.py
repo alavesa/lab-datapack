@@ -172,35 +172,60 @@ with open(pumpkin, "w") as f:
     json.dump(pdata, f, indent=2)
 print(pumpkin, "-> +gasmask case")
 
-# The worn overlay: retexture misc/pumpkinblur into a gas-mask view - two clear
-# goggle holes, the rest a dark rubber vignette. (Affects any worn carved pumpkin,
-# but on this server that's the gas mask.) 256x256.
-def pumpkinblur():
-    # A gas-mask view: two big clear goggle holes with a soft rubber gasket ring,
-    # and a dark (neutral, not green) vignette everywhere else so you can still see
-    # the world but it's masked. 256x256.
+# The vanilla carved-pumpkin overlay is killed (fully transparent) so it doesn't
+# double up with our per-tier font overlay below.
+def pumpkinblur_clear():
+    return [[(0, 0, 0, 0)] * 8 for _ in range(8)]
+
+misc0 = os.path.join(os.path.dirname(__file__), "..", "resource-pack", "assets", "minecraft", "textures", "misc")
+png(os.path.join(misc0, "pumpkinblur.png"), pumpkinblur_clear())
+
+# Per-tier gas-mask FIRST-PERSON overlays. Each is a full-screen font glyph (in the
+# lab:gasmask font, scaled up by height) that the plugin paints via the ActionBars
+# hub while the matching mask is worn - so the three tiers can look different and
+# it composes with the meters/messages instead of flickering. Two goggle holes;
+# the tiers differ in tint and frame.
+def mask_overlay(tint, frame, holes_r=74):
     N = 256
     px = [[(0, 0, 0, 0)] * N for _ in range(N)]
-    eyes = [(94, 116, 72), (162, 116, 72)]   # (cx, cy, r) - big goggles
-    GASKET = 16                               # soft ring width around each lens
+    eyes = [(92, 116, holes_r), (164, 116, holes_r)]
+    GASKET = 18
     for y in range(N):
         for x in range(N):
             dmin = 1e9
             for cx, cy, r in eyes:
                 d = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5 - r
-                if d < dmin:
-                    dmin = d
+                dmin = min(dmin, d)
             if dmin <= 0:
-                px[y][x] = (0, 0, 0, 0)                      # clear glass
+                px[y][x] = (0, 0, 0, 0)
             elif dmin <= GASKET:
-                a = int(230 * (dmin / GASKET))               # fade into the rubber
-                px[y][x] = (14, 14, 16, a)
+                px[y][x] = (frame[0], frame[1], frame[2], int(235 * (dmin / GASKET)))
             else:
                 edge = max(abs(x - N / 2), abs(y - N / 2)) / (N / 2)
-                a = int(150 + 80 * edge)                     # neutral dark, lighter than before
-                px[y][x] = (12, 12, 14, min(235, a))
+                px[y][x] = (tint[0], tint[1], tint[2], min(235, int(150 + 80 * edge)))
     return px
 
-misc = os.path.join(os.path.dirname(__file__), "..", "resource-pack", "assets", "minecraft", "textures", "misc")
-png(os.path.join(misc, "pumpkinblur.png"), pumpkinblur())
-print("misc/pumpkinblur.png -> gas-mask first-person overlay")
+GLYPHS = {
+    "gasmask_normal": chr(0xE000),
+    "gasmask_super":  chr(0xE001),
+    "gasmask_heavy":  chr(0xE002),
+}
+png(os.path.join(TEX, "gasmask_normal.png"), mask_overlay((12, 12, 14), (26, 26, 28)))
+png(os.path.join(TEX, "gasmask_super.png"),  mask_overlay((10, 16, 22), (40, 120, 150)))  # cyan-tinted glass
+png(os.path.join(TEX, "gasmask_heavy.png"),  mask_overlay((8, 8, 9),  (60, 55, 45), holes_r=62))  # heavier frame
+
+gm_font = {"providers": [
+    {"type": "bitmap", "file": "lab:font/" + name + ".png", "ascent": 640, "height": 1024,
+     "chars": [ch]} for name, ch in GLYPHS.items()]}
+os.makedirs(os.path.join(ROOT, "font"), exist_ok=True)
+# textures for the font live under lab:font/, copy the item pngs there too
+FONTDIR = os.path.join(ROOT, "textures", "font")
+for name in GLYPHS:
+    import shutil
+    os.makedirs(FONTDIR, exist_ok=True)
+    shutil.copy(os.path.join(TEX, name + ".png"), os.path.join(FONTDIR, name + ".png"))
+with open(os.path.join(ROOT, "font", "gasmask.json"), "w") as f:
+    json.dump(gm_font, f, indent=2)
+print("lab:gasmask font + 3 tier overlays written")
+
+
