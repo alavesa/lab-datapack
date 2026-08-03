@@ -22,4 +22,5 @@ effect give @s minecraft:instant_health 1 3 true
 particle minecraft:happy_villager ~ ~1.2 ~ 0.4 0.6 0.4 0 15
 playsound minecraft:block.brewing_stand.brew player @s ~ ~ ~ 0.8 1.6
 playsound minecraft:entity.player.levelup player @s ~ ~ ~ 0.5 1.8
-title @s actionbar {"text":"Whole again. Mostly.","color":"gray","italic":true}
+# Actionbar message removed - the plugin (DownedListener.onScp500) prints the
+# state-dependent line now; the datapack no longer competes for the actionbar.
