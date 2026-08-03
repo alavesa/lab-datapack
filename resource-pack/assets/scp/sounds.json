@@ -7,5 +7,6 @@
   "keycard.swipe": { "category": "master", "sounds": [ { "name": "scp:keycard/swipe", "stream": false } ] },
   "car.engine":   { "category": "master", "sounds": [ { "name": "scp:car/engine", "stream": true } ] },
   "camera.connect": { "category": "master", "sounds": [ { "name": "scp:camera/connect", "stream": false } ] },
-  "camera.ambient": { "category": "master", "sounds": [ { "name": "scp:camera/ambient", "stream": false } ] }
+  "camera.ambient": { "category": "master", "sounds": [ { "name": "scp:camera/ambient", "stream": false } ] },
+  "mop":           { "category": "master", "sounds": [ { "name": "scp:mop", "stream": false } ] }
 }
