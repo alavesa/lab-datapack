@@ -1,0 +1,40 @@
+{
+  "textures": {
+    "0": "minecraft:block/cyan_wool",
+    "particle": "minecraft:block/cyan_wool"
+  },
+  "elements": [
+    {
+      "from": [
+        -2,
+        -12,
+        -2
+      ],
+      "to": [
+        2,
+        0,
+        2
+      ],
+      "faces": {
+        "north": {
+          "texture": "#0"
+        },
+        "south": {
+          "texture": "#0"
+        },
+        "east": {
+          "texture": "#0"
+        },
+        "west": {
+          "texture": "#0"
+        },
+        "up": {
+          "texture": "#0"
+        },
+        "down": {
+          "texture": "#0"
+        }
+      }
+    }
+  ]
+}

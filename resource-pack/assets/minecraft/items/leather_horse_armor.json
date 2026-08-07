@@ -1,0 +1,8 @@
+{ "model": { "type": "minecraft:select", "property": "minecraft:custom_model_data", "cases": [
+  { "when": "rig_head",      "model": { "type": "minecraft:model", "model": "lab:item/rig_head" } },
+  { "when": "rig_torso",     "model": { "type": "minecraft:model", "model": "lab:item/rig_torso" } },
+  { "when": "rig_arm_left",  "model": { "type": "minecraft:model", "model": "lab:item/rig_arm_left" } },
+  { "when": "rig_arm_right", "model": { "type": "minecraft:model", "model": "lab:item/rig_arm_right" } },
+  { "when": "rig_leg_left",  "model": { "type": "minecraft:model", "model": "lab:item/rig_leg_left" } },
+  { "when": "rig_leg_right", "model": { "type": "minecraft:model", "model": "lab:item/rig_leg_right" } }
+], "fallback": { "type": "minecraft:model", "model": "minecraft:item/leather_horse_armor" } } }
